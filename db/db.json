@@ -1,6 +1,7 @@
 {
   "decks": [
     {
+      "id": 0,
       "title": "Synonyms",
       "tags": [
         "General Paper",
@@ -14,6 +15,7 @@
       ]
     },
     {
+      "id": 1,
       "title": "Word Bank",
       "tags": [
         "General Paper",
