@@ -25,10 +25,13 @@ export default {
         cursor: `${this.hover ? 'pointer' : 'default'}`,
       };
     },
+    lengthText() {
+      return `${this.deck.cards.length} card${this.deck.cards.length > 1 ? 's' : ''}`;
+    },
   },
   methods: {
     openDeck(id) {
-      this.$router.push(`/decks/${id}`);
+      this.$router.push(`/practice/${id}`);
     },
   },
   template: `
@@ -40,6 +43,7 @@ export default {
     >
       <h1>{{ deck.title }}</h1>
       <em>{{ tagline }}</em>
+      <p>{{ lengthText }}</p>
     </div>
   `,
 };
