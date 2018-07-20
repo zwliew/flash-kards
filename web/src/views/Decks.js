@@ -1,64 +1,21 @@
-import Card from '../components/Card.js';
+import Deck from '../components/Deck.js';
 
 export default {
   data: () => ({
     title: 'Decks',
-    styles: {
-      deck: {
-        'margin-top': '16px',
-      },
-    },
-    "decks": [
-      {
-        "title": "Synonyms",
-        "tags": [
-          "General Paper",
-          "English"
-        ],
-        "cards": [
-          {
-            "front": "technology",
-            "back": "machines"
-          }
-        ]
-      },
-      {
-        "title": "Word Bank",
-        "tags": [
-          "General Paper",
-          "English"
-        ],
-        "cards": [
-          {
-            "front": "morose",
-            "back": "sullen and ill-tempered"
-          },
-          {
-            "front": "infidel",
-            "back": "a person who has no religion or whose religion is not that of the majority"
-          }
-        ]
-      }
-    ]
+    hover: false,
   }),
-  methods: {
-    openDeck(id) {
-      router.push(`/decks/${id}`);
-    },
-  },
   components: {
-    Card,
+    Deck,
   },
   template: `
     <div>
       <h1>{{ title }}</h1>
-      <Card
-        v-for="deck in decks"
+      <Deck
+        v-for="deck in this.$store.state.decks"
         :key="deck.id"
         :deck="deck"
-        :style="styles.deck"
-        @click="openDeck(deck.id)"
-      ></Card>
+      ></Deck>
     </div>
   `,
 };
