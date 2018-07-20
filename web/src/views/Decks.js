@@ -1,3 +1,5 @@
+import Card from '../components/Card.js';
+
 export default {
   data: () => ({
     title: 'Decks',
@@ -44,16 +46,19 @@ export default {
       router.push(`/decks/${id}`);
     },
   },
+  components: {
+    Card,
+  },
   template: `
     <div>
       <h1>{{ title }}</h1>
-      <flash-deck
+      <Card
         v-for="deck in decks"
         :key="deck.id"
         :deck="deck"
         :style="styles.deck"
         @click="openDeck(deck.id)"
-      ></flash-deck>
+      ></Card>
     </div>
   `,
 };
