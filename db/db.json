@@ -1,0 +1,34 @@
+{
+  "decks": [
+    {
+      "title": "Synonyms",
+      "tags": [
+        "General Paper",
+        "English"
+      ],
+      "cards": [
+        {
+          "front": "technology",
+          "back": "machines"
+        }
+      ]
+    },
+    {
+      "title": "Word Bank",
+      "tags": [
+        "General Paper",
+        "English"
+      ],
+      "cards": [
+        {
+          "front": "morose",
+          "back": "sullen and ill-tempered"
+        },
+        {
+          "front": "infidel",
+          "back": "a person who has no religion or whose religion is not that of the majority"
+        }
+      ]
+    }
+  ]
+}
