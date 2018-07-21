@@ -1,8 +1,5 @@
 export default {
-  FETCH_DECKS({ commit }) {
-    fetch('/api/db.json')
-      .then(res => res.json())
-      .then(json => json.decks)
-      .then(decks => commit('SET_DECKS', { decks }));
-  },
+  FETCH_DECKS: Vuexfire.firebaseAction(({ bindFirebaseRef }) => {
+    bindFirebaseRef('decks', firebase.firestore().collection('decks'));
+  }),
 };

@@ -7,6 +7,9 @@ export default new Vuex.Store({
     "decks": [],
   },
   getters,
-  mutations,
   actions,
+  mutations: {
+    ...mutations,
+    ...Vuexfire.firebaseMutations,
+  },
 });

@@ -21,7 +21,7 @@ export default {
   }),
   computed: {
     deck() {
-      return this.$store.getters.getDeckById(parseInt(this.$route.params.id));
+      return this.$store.getters.getDeckById(this.$route.params.id);
     },
     nextIndex() {
       return this.index === this.deck.cards.length - 1 ? 0 : this.index + 1;
