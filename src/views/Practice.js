@@ -5,7 +5,8 @@ export default {
     styles: {
       main: {
         display: 'flex',
-        'justify-content': 'center',
+        'flex-direction': 'column',
+        'align-items': 'center',
         'max-width': '80%',
         'max-height': '80%',
         margin: 'auto',
@@ -51,6 +52,7 @@ export default {
   },
   template: `
     <div :style="styles.main">
+      <h1>Practice</h1>
       <div v-if="deck">
         <Card :card="deck.cards[index]"></Card>
         <nav :style="styles.nav">
