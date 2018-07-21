@@ -1,13 +1,24 @@
 export default {
   data: () => ({
-    style: {
-      'font-family': 'Roboto, sans-serif',
+    styles: {
+      container: {
+        'font-family': 'Roboto, sans-serif',
+        display: 'flex',
+        'flex-direction': 'column',
+        'justify-content': 'center',
+      },
+      nav: {
+        'text-align': 'center',
+        padding: '32px',
+      },
     },
   }),
   template: `
-    <div :style="style">
-      <router-link to="/">Decks</router-link> |
-      <router-link to="/create">Create</router-link>
+    <div :style="styles.container">
+      <nav :style="styles.nav">
+        <router-link to="/">Decks</router-link> |
+        <router-link to="/create">Create</router-link>
+      </nav>
       <router-view></router-view>
     </div>
   `,

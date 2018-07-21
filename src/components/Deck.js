@@ -2,7 +2,7 @@ export default {
   props: ['deck'],
   data: () => ({
     styles: {
-      main: {
+      container: {
         'box-sizing': 'border-box',
         border: '1px solid #b0b0b0',
         'border-radius': '4px',
@@ -12,18 +12,23 @@ export default {
         height: '240px',
         padding: '16px',
         'margin-top': '16px',
+        transition: 'box-shadow 0.12s',
       },
     },
-    hover: false,
+    hovering: false,
   }),
   computed: {
     tagline() {
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
     },
     hoverStyle() {
-      return {
-        cursor: `${this.hover ? 'pointer' : 'default'}`,
-      };
+      if (this.hovering) {
+        return {
+          'box-shadow': '0px 1px 6px rgba(0, 0, 0, 0.25)',
+          cursor: 'pointer',
+        };
+      }
+      return null;
     },
     lengthText() {
       return `${this.deck.cards.length} card${this.deck.cards.length > 1 ? 's' : ''}`;
@@ -36,10 +41,10 @@ export default {
   },
   template: `
     <div
-      :style="[styles.main, hoverStyle]"
+      :style="[styles.container, hoverStyle]"
       @click="openDeck(deck.id)"
-      @mouseover="hover = true"
-      @mouseleave="hover = false"
+      @mouseover="hovering = true"
+      @mouseleave="hovering = false"
     >
       <h1>{{ deck.title }}</h1>
       <em>{{ tagline }}</em>

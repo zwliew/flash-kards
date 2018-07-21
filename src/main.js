@@ -6,4 +6,7 @@ new Vue({
   router,
   store,
   render: h => h(App),
+  mounted() {
+    this.$store.dispatch('FETCH_DECKS');
+  },
 }).$mount('#app');
