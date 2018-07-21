@@ -14,7 +14,12 @@ export default {
       nav: {
         padding: '16px',
         display: 'flex',
-        'justify-content': 'space-between',
+        'justify-content': 'space-evenly',
+      },
+      header: {
+        display: 'flex',
+        'justify-content': 'space-evenly',
+        'align-items': 'center',
       },
     },
     index: 0,
@@ -38,6 +43,13 @@ export default {
         cursor: `${this.hovering ? 'pointer' : 'default'}`,
       };
     },
+    addButtonStyle() {
+      return {
+        'margin-left': '16px',
+        padding: '8px',
+        cursor: `${this.hovering ? 'pointer' : 'default'}`,
+      };
+    },
   },
   methods: {
     nextCard() {
@@ -46,13 +58,26 @@ export default {
     prevCard() {
       this.index = this.prevIndex;
     },
+    addCard() {
+      this.$router.push(`/create/${this.$route.params.id}`);
+    },
   },
   components: {
     Card,
   },
   template: `
     <div :style="styles.main">
-      <h1>Practice</h1>
+      <header :style="styles.header">
+        <h1>Practice</h1>
+        <i
+          class="fas fa-plus-circle"
+          :style="addButtonStyle"
+          @mouseover="hovering = true"
+          @mouseleave="hovering = false"
+          title="Add card"
+          @click="addCard"
+        ></i>
+      </header>
       <div v-if="deck">
         <Card :card="deck.cards[index]"></Card>
         <nav :style="styles.nav">

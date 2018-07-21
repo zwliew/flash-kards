@@ -1,3 +1,5 @@
+import Button from '../components/Button.js';
+
 export default {
   props: [
     'card',
@@ -21,20 +23,6 @@ export default {
     visibleText() {
       return this.flipped ? this.card.back : this.card.front;
     },
-    buttonStyle() {
-      return {
-        border: 'none',
-        'border-radius': '4px',
-        padding: '0 16px 0 16px',
-        height: '36px',
-        color: '#6200ee',
-        'text-transform': 'uppercase',
-        'font-weight': 'bold',
-        transition: 'background 0.3s',
-        cursor: `${this.hovering ? 'pointer' : 'default'}`,
-        background: `${this.hovering ? '#eee' : 'white'}`,
-      };
-    },
   },
   watch: {
     card() {
@@ -44,12 +32,9 @@ export default {
   template: `
     <div :style="styles.container">
       <h1>{{ visibleText }}</h1>
-      <button
-        :style="buttonStyle"
+      <Button
         @click="flipped = !flipped"
-        @mouseover="hovering = true"
-        @mouseleave="hovering = false"
-      >Flip</button>
+      >Flip</Button>
     </div>
   `,
 };

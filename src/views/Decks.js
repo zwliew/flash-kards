@@ -1,4 +1,4 @@
- import Deck from '../components/Deck.js';
+import Deck from '../components/Deck.js';
 
 export default {
   data: () => ({

@@ -16,8 +16,7 @@ export default {
   template: `
     <div :style="styles.container">
       <nav :style="styles.nav">
-        <router-link to="/">Decks</router-link> |
-        <router-link to="/create">Create</router-link>
+        <router-link to="/">Decks</router-link>
       </nav>
       <router-view></router-view>
     </div>
