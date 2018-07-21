@@ -1,15 +1,15 @@
 export default {
-  props: ['card'],
+  props: [
+    'card',
+  ],
   data: () => ({
-    flipped: false,
     hovering: false,
+    flipped: false,
     styles: {
       container: {
-        'box-sizing': 'border-box',
+        margin: 'auto',
         'min-width': '240px',
-        'max-width': '80%',
-        'min-height': '160px',
-        'max-height': '80%',
+        'min-height': '120px',
         border: '1px solid #b0b0b0',
         'border-radius': '4px',
         'text-align': 'center',
@@ -34,6 +34,11 @@ export default {
         cursor: `${this.hovering ? 'pointer' : 'default'}`,
         background: `${this.hovering ? '#eee' : 'white'}`,
       };
+    },
+  },
+  watch: {
+    card() {
+      this.flipped = false;
     },
   },
   template: `

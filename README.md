@@ -1,3 +1,3 @@
-# Flash Cards Database
+# Flash Cards
 
-A quick JSON flat-file database for some flash card decks. To be used later on.
+Quick, customizable flash cards for one to learn and memorize on the go.
