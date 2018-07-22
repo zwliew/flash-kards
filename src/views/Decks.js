@@ -14,14 +14,14 @@ export default {
     Deck,
   },
   computed: {
-    ...Vuex.mapGetters([
-      'decks'
-    ])
+    decks() {
+      return this.$store.state.decks;
+    },
   },
   template: `
     <div :style="styles.container">
       <h1>Decks</h1>
-      <div v-if="decks.length">
+      <div v-if="decks.length > 0">
         <Deck
         v-for="deck in decks"
         :key="deck.id"

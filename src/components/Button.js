@@ -24,6 +24,7 @@ export default {
         :style="style"
         @mouseover="hovering = true"
         @mouseleave="hovering = false"
+        @click="$emit('click')"
       >
         <slot></slot>
       </button>

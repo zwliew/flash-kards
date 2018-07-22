@@ -1,5 +1,5 @@
 export default {
-  SET_DECKS(state, { decks }) {
-    state.decks = decks;
+  STORE_REFS(state, { decks }) {
+    state.refs.decks = decks;
   },
 };

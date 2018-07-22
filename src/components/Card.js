@@ -29,6 +29,9 @@ export default {
       this.flipped = false;
     },
   },
+  components: {
+    Button,
+  },
   template: `
     <div :style="styles.container">
       <h1>{{ visibleText }}</h1>

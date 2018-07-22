@@ -4,6 +4,9 @@ import actions from './actions.js';
 
 export default new Vuex.Store({
   state: {
+    refs: {
+      decks: null,
+    },
     "decks": [],
   },
   getters,

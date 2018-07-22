@@ -14,6 +14,11 @@ new Vue({
   store,
   render: h => h(App),
   mounted() {
-    this.$store.dispatch('FETCH_DECKS');
+    this.$store.commit('STORE_REFS', {
+      decks: firestore.collection('decks'),
+    });
+    this.$store.dispatch('SET_DECKS_REF', {
+      ref: this.$store.state.refs.decks,
+    });
   },
 }).$mount('#app');
