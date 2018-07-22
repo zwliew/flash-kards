@@ -1,5 +1,7 @@
+import { firebaseAction } from 'vuexfire';
+
 export default {
-  SET_DECKS_REF: Vuexfire.firebaseAction(({ bindFirebaseRef }, { ref }) => {
+  SET_DECKS_REF: firebaseAction(({ bindFirebaseRef }, { ref }) => {
     bindFirebaseRef('decks', ref);
   }),
   ADD_CARD({ state, getters }, { deckId, front, back }) {

@@ -1,0 +1,30 @@
+{
+  "name": "flash-cards",
+  "version": "1.0.0",
+  "description": "Quick, customizable flash cards for one to learn and memorize on the go.",
+  "private": true,
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/zwliew/flash-cards.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zwliew/flash-cards/issues"
+  },
+  "homepage": "https://github.com/zwliew/flash-cards#readme",
+  "devDependencies": {
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "firebase": "^5.3.0",
+    "vue": "^2.5.17-beta.0",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "vuexfire": "^3.0.0-alpha.5"
+  }
+}
