@@ -70,6 +70,7 @@ export default {
       <header :style="styles.header">
         <h1>Practice</h1>
         <i
+          v-if="$store.getters.isAdmin"
           class="fas fa-plus-circle"
           :style="addButtonStyle"
           @mouseover="hovering = true"

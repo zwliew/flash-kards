@@ -12,7 +12,12 @@ export default new Vuex.Store({
     refs: {
       decks: null,
     },
-    "decks": [],
+    decks: [],
+    user: {
+      name: null,
+      uid: null,
+      photo: null,
+    },
   },
   getters,
   actions,

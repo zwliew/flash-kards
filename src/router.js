@@ -1,16 +1,20 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Decks from './views/Decks.js';
-import Practice from './views/Practice.js';
-import CreateCard from './views/CreateCard.js';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 
 Vue.use(VueRouter);
 
+const Decks = () => import('./views/Decks.js');
+const Practice = () => import('./views/Practice.js');
+const Account = () => import('./views/Account.vue');
+const CreateCard = () => import('./views/CreateCard.js');
+
 export default new VueRouter({
+  mode: 'history',
   routes: [
     {
-      path: '/',
-      alias: '/decks',
+      path: '/decks',
       component: Decks,
     },
     {
@@ -20,6 +24,21 @@ export default new VueRouter({
     {
       path: '/create/:id',
       component: CreateCard,
+      beforeEnter(to, from, next) {
+        if (!firebase.auth().currentUser) {
+          next(false);
+        } else {
+          next();
+        }
+      },
+    },
+    {
+      path: '/account',
+      component: Account,
+    },
+    {
+      path: '/',
+      redirect: '/decks',
     },
   ],
 });

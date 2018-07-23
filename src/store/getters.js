@@ -5,4 +5,5 @@ export default {
     if (!deck) return null;
     return deck.title;
   },
+  isAdmin: (state, _) => state.user.uid === 'iQc1iLK3r3Yf98R51wT3B2D7vHq2',
 };
