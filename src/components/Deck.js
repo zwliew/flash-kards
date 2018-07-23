@@ -20,7 +20,7 @@ export default {
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
     },
     hoverStyle() {
-      if (this.hovering) {
+      if (this.hovering && this.deck.cards.length > 0) {
         return {
           'box-shadow': '0px 1px 6px rgba(0, 0, 0, 0.25)',
           cursor: 'pointer',
@@ -29,12 +29,16 @@ export default {
       return null;
     },
     lengthText() {
-      return `${this.deck.cards.length} card${this.deck.cards.length > 1 ? 's' : ''}`;
+      return `${this.deck.cards.length} card${this.deck.cards.length !== 1 ? 's' : ''}`;
     },
   },
   methods: {
     openDeck(id) {
-      this.$router.push(`/practice/${id}`);
+      if (this.deck.cards.length > 0) {
+        this.$router.push(`/practice/${id}`);
+      } else {
+        alert('This deck is empty.');
+      }
     },
   },
   template: `
