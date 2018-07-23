@@ -1,4 +1,5 @@
 import Button from '../components/Button.js';
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
@@ -36,6 +37,9 @@ export default {
       if (!deck) return false;
       return deck.cards.find(card => this.front === card.front && this.back === card.back);
     },
+    ...mapGetters([
+      'isAdmin',
+    ]),
   },
   methods: {
     submit() {
@@ -72,6 +76,7 @@ export default {
             :style="styles.input"
             placeholder="Front"
             required
+            :disabled="!isAdmin"
             v-model="front">
         </div>
         <div :style="styles.inputContainer">
@@ -82,9 +87,13 @@ export default {
             :style="styles.input"
             placeholder="Back"
             v-model="back"
+            :disabled="!isAdmin"
             required>
         </div>
-        <Button @click="submit">Submit</Button>
+        <Button
+          :disabled="!isAdmin"
+          @click="submit"
+        >Submit</Button>
       </div>
       <div v-else>
         Loading…

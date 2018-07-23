@@ -23,13 +23,6 @@ export default new VueRouter({
     {
       path: '/create/:id',
       component: CreateCard,
-      beforeEnter(to, from, next) {
-        if (!firebase.auth().currentUser) {
-          next(false);
-        } else {
-          next();
-        }
-      },
     },
     {
       path: '/account',

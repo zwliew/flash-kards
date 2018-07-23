@@ -1,4 +1,7 @@
 export default {
+  props: [
+    'disabled',
+  ],
   data: () => ({
     hovering: false,
   }),
@@ -25,6 +28,7 @@ export default {
         @mouseover="hovering = true"
         @mouseleave="hovering = false"
         @click="$emit('click')"
+        :disabled="disabled"
       >
         <slot></slot>
       </button>
