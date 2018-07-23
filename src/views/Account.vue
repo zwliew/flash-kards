@@ -5,7 +5,7 @@
       <p>{{ user.name }}</p>
       <Button @click="logout">Log out</Button>
     </div>
-    <div v-else id="firebaseui-auth-container"></div>
+    <div v-show="!user.uid" id="firebaseui-auth-container"></div>
   </div>
 </template>
 
@@ -26,9 +26,8 @@ export default {
   },
   methods: {
     logout() {
-      this.$store.commit('SET_USER', {});
-      firebase.auth().signOut();
       this.$router.push('/');
+      firebase.auth().signOut();
     },
   },
   mounted() {
@@ -39,20 +38,13 @@ export default {
     const component = this;
     ui.start('#firebaseui-auth-container', {
       callbacks: {
-        signInSuccessWithAuthResult(authResult, redirectUrl) {
-          const user = authResult.user;
-          component.$store.commit('SET_USER', {
-            name: user.displayName,
-            uid: user.uid,
-            photo: user.photoURL
-          });
-          return true;
+        signInSuccessWithAuthResult(authResult) {
+          return false;
         },
       },
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       ],
-      signInSuccessUrl: '/account',
     });
   },
 };

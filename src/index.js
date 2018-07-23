@@ -5,8 +5,6 @@ import router from './router.js';
 import store from './store/index.js';
 import App from './App.js';
 
-let firestore;
-
 new Vue({
   router,
   store,
@@ -20,15 +18,17 @@ new Vue({
       storageBucket: "flash-cards-e27e5.appspot.com",
       messagingSenderId: "629649052365",
     });
-    firestore = firebase.firestore();
+    const firestore = firebase.firestore();
     firestore.settings({ timestampsInSnapshots: true });
-  },
-  mounted() {
-    this.$store.commit('STORE_REFS', {
-      decks: firestore.collection('decks'),
+    firebase.auth().onAuthStateChanged((user) => {
+      const payload = {};
+      if (user) {
+        payload.name = user.displayName;
+        payload.photo = user.photoURL;
+        payload.uid = user.uid;
+      }
+      this.$store.commit('SET_USER', payload);
     });
-    this.$store.dispatch('SET_DECKS_REF', {
-      ref: this.$store.state.refs.decks,
-    });
+    this.$store.dispatch('SET_DECKS_REF');
   },
 }).$mount('#app');

@@ -9,9 +9,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    refs: {
-      decks: null,
-    },
     decks: [],
     user: {
       name: null,
