@@ -20,7 +20,7 @@ export default {
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
     },
     hoverStyle() {
-      if (this.hovering && this.deck.cards.length > 0) {
+      if (this.hovering) {
         return {
           'box-shadow': '0px 1px 6px rgba(0, 0, 0, 0.25)',
           cursor: 'pointer',
@@ -34,11 +34,7 @@ export default {
   },
   methods: {
     openDeck(id) {
-      if (this.deck.cards.length > 0) {
-        this.$router.push(`/practice/${id}`);
-      } else {
-        alert('This deck is empty.');
-      }
+      this.$router.push(`/practice/${id}`);
     },
   },
   template: `
