@@ -1,0 +1,21 @@
+{
+  "name": "Flash Cards",
+  "short_name": "Flash Cards",
+  "description": "Quick, customizable flash cards for one to learn and memorize on the go.",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#6200ee",
+  "background_color": "#fff",
+  "icons": [
+    {
+      "src": "icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

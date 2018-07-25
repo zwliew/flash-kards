@@ -3,6 +3,7 @@ const { VueLoaderPlugin } = require('vue-loader');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   output: {
@@ -20,6 +21,9 @@ module.exports = {
       inlineSource: 'runtime~.+\\.js',
     }),
     new InlineSourcePlugin(),
+    new CopyWebpackPlugin([{
+      from: 'public',
+    }]),
     new webpack.HashedModuleIdsPlugin(),
     new VueLoaderPlugin(),
   ],
