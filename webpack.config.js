@@ -4,6 +4,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
 
 module.exports = {
   output: {
@@ -24,6 +25,10 @@ module.exports = {
     new CopyWebpackPlugin([{
       from: 'public',
     }]),
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
     new webpack.HashedModuleIdsPlugin(),
     new VueLoaderPlugin(),
   ],
