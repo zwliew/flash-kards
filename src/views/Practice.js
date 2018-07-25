@@ -72,43 +72,43 @@ export default {
     <div :style="styles.main">
       <header :style="styles.header">
         <h1>Practice</h1>
-        <i
+        <font-awesome-icon
           v-if="$store.getters.isAdmin"
-          class="fas fa-plus-circle"
+          icon="plus-circle"
           :style="iconStyle"
           @mouseover="hovering = true"
           @mouseleave="hovering = false"
           title="Add card"
           @click="addCard"
-        ></i>
-        <i
-          class="fas fa-random"
+        ></font-awesome-icon>
+        <font-awesome-icon
+          icon="random"
           :style="iconStyle"
           @mouseover="hovering = true"
           @mouseleave="hovering = false"
           title="Shuffle"
           @click="shuffle"
-        ></i>
+        ></font-awesome-icon>
       </header>
       <div v-if="deck">
         <Card :card="deck.cards[index]"></Card>
         <nav :style="styles.nav">
-          <i
+          <font-awesome-icon
             :style="navButtonStyle"
-            class="fas fa-arrow-left"
+            icon="arrow-left"
             title="Previous"
             @mouseover="hovering = true"
             @mouseleave="hovering = false"
             @click="prevCard"
-          ></i>
-          <i
+          ></font-awesome-icon>
+          <font-awesome-icon
             :style="navButtonStyle"
-            class="fas fa-arrow-right"
+            icon="arrow-right"
             title="Next"
             @mouseover="hovering = true"
             @mouseleave="hovering = false"
             @click="nextCard"
-          ></i>
+          ></font-awesome-icon>
         </nav>
       </div>
       <div v-else>

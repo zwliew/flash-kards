@@ -4,6 +4,12 @@ import 'firebase/firestore';
 import router from './router.js';
 import store from './store/index.js';
 import App from './App.js';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faRandom, faPlusCircle, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
+library.add(faRandom, faPlusCircle, faArrowRight, faArrowLeft);
+Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
   router,
