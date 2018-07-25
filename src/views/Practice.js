@@ -43,7 +43,7 @@ export default {
         cursor: `${this.hovering ? 'pointer' : 'default'}`,
       };
     },
-    addButtonStyle() {
+    iconStyle() {
       return {
         'margin-left': '16px',
         padding: '8px',
@@ -61,6 +61,9 @@ export default {
     addCard() {
       this.$router.push(`/create/${this.$route.params.id}`);
     },
+    shuffle() {
+      this.index = Math.floor(Math.random() * this.deck.cards.length);
+    },
   },
   components: {
     Card,
@@ -72,11 +75,19 @@ export default {
         <i
           v-if="$store.getters.isAdmin"
           class="fas fa-plus-circle"
-          :style="addButtonStyle"
+          :style="iconStyle"
           @mouseover="hovering = true"
           @mouseleave="hovering = false"
           title="Add card"
           @click="addCard"
+        ></i>
+        <i
+          class="fas fa-random"
+          :style="iconStyle"
+          @mouseover="hovering = true"
+          @mouseleave="hovering = false"
+          title="Shuffle"
+          @click="shuffle"
         ></i>
       </header>
       <div v-if="deck">
