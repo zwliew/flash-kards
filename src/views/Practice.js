@@ -29,12 +29,6 @@ export default {
     deck() {
       return this.$store.getters.getDeckById(this.$route.params.id);
     },
-    nextIndex() {
-      return this.index === this.deck.cards.length - 1 ? 0 : this.index + 1;
-    },
-    prevIndex() {
-      return this.index === 0 ? this.deck.cards.length - 1 : this.index - 1;
-    },
     navButtonStyle() {
       return {
         padding: '16px',
@@ -53,10 +47,22 @@ export default {
   },
   methods: {
     nextCard() {
-      this.index = this.nextIndex;
+      this.index = do {
+        if (this.index === this.deck.cards.length - 1) {
+          0;
+        } else {
+          this.index + 1;
+        }
+      };
     },
     prevCard() {
-      this.index = this.prevIndex;
+      this.index = do {
+        if (this.index === 0) {
+          this.deck.cards.length - 1;
+        } else {
+          this.index - 1;
+        }
+      };
     },
     addCard() {
       this.$router.push(`/create/${this.$route.params.id}`);

@@ -46,6 +46,11 @@ module.exports = {
           'stylus-loader'
         ],
       },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader',
+      },
     ],
   },
   optimization: {
