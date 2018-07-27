@@ -13,7 +13,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseui from 'firebaseui';
-import Button from '../components/Button.js';
+import Button from '../components/Button.vue';
 
 export default {
   components: {

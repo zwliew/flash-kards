@@ -8,7 +8,10 @@
     </div>
     <div>
       <button @click="practice">Practice</button>
-      <button>Add Card</button>
+      <button
+        v-if="$store.getters.isAdmin"
+        @click="addCard"
+      >Add Card</button>
     </div>
   </div>
 </template>
@@ -32,6 +35,9 @@ export default {
   methods: {
     practice() {
       this.$router.push(`/practice/${this.id}`);
+    },
+    addCard() {
+      this.$router.push(`/create/${this.$route.params.id}`);
     },
   },
 };

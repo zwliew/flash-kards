@@ -3,9 +3,9 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const Decks = () => import('./views/Decks.js');
-const Practice  = () => import('./views/Practice.js');
-const CreateCard = () => import('./views/CreateCard.js');
+const Decks = () => import('./views/Decks.vue');
+const Practice  = () => import('./views/Practice.vue');
+const CreateCard = () => import('./views/CreateCard.vue');
 const Account = () => import('./views/Account.vue');
 const Manage = () => import('./views/Manage.vue');
 

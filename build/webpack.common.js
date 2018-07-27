@@ -7,11 +7,6 @@ const { GenerateSW } = require('workbox-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  resolve: {
-    alias: {
-      vue$: 'vue/dist/vue.esm.js',
-    },
-  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
