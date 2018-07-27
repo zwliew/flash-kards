@@ -13,6 +13,7 @@ module.exports = {
       template: 'src/index.html',
       inlineSource: 'runtime~.+\\.js',
     }),
+    new webpack.HashedModuleIdsPlugin(),
     new InlineSourcePlugin(),
     new CopyWebpackPlugin([{
       from: 'public',
@@ -21,7 +22,6 @@ module.exports = {
       clientsClaim: true,
       skipWaiting: true,
     }),
-    new webpack.HashedModuleIdsPlugin(),
     new VueLoaderPlugin(),
   ],
   module: {
