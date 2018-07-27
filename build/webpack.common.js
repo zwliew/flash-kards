@@ -1,15 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const webpack = require('webpack');
 const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
-  output: {
-    filename: '[name].[chunkhash].js',
-  },
   resolve: {
     alias: {
       vue$: 'vue/dist/vue.esm.js',
