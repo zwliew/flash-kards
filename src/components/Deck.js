@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     openDeck(id) {
-      this.$router.push(`/practice/${id}`);
+      this.$router.push(`/manage/${id}`);
     },
   },
   template: `

@@ -1,7 +1,7 @@
 <template>
-  <div id="container">
+  <div class="container">
     <div v-if="user.uid">
-      <img id="user-photo" :src="user.photo">
+      <img class="user-photo" :src="user.photo">
       <p>{{ user.name }}</p>
       <Button @click="logout">Log out</Button>
     </div>
@@ -51,10 +51,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-#container
+.container
   text-align center
 
-#user-photo
+.user-photo
   border-radius 50%
   max-width 128px
   max-height 128px
