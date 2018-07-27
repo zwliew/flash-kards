@@ -3,11 +3,27 @@ language: node_js
 node_js:
   - node
 
+before_install:
+  - npm i -g greenkeeper-lockfile
+
+install:
+  - npm i
+
+before_script:
+  - greenkeeper-lockfile-update
+
 script:
   - npm run build
+
+after_script:
+  - greenkeeper-lockfile-upload
 
 deploy:
   provider: firebase
   skip_cleanup: true
   token:
     secure: iKimx10SCVaab/fTMMBi7oF/Mv4qXVGleA57Y2lADRaYV5tYI4RExzNS1FNNmPe7/37MKeNlsaZPbDmfniPs5rJGmYJQlypH7qpVSkCJThcb+LkzL0H7ii0vP+wfpGW5vBIlJDZHePF8ZtOc05v8vn2tKnuVq0p963rd4QVE4a2RF2ljb9WOuG4jjnM4zBRSa74xAtWMpxEzhMENu3Hl3DKRhxG/d2LOixNBhSBwOeaTlpf9XS6ODwy1vJkchh2nJRV8D26nUn26P3gAHL7wzE/prkX6A42o2ireVjUxITg9nawVCEFWoMwcB55z8C8t5T0cT/zcemqyDT/5i+PpdmP6E/KhYERSyBmL/U+FCvVl2Mju8y7tGY+cfBiYAshXmZQaymfCvc1Q+EmJGCxybZ1Jq6tRnFcitfRoP007nzpIaUJa3e+IVYDq0s7ybvpcGkkSkmAdyJ+m2uOH/K5EP6SJqSHDarNYJEOJxz6EnQCoRlPlj3HKRzgxxAstL0sP2Z2PRHwD9l3feuz2SAsGrKfwUttrs6+2nTi2CvwpZ7KgclkFkyNAAdwvYMwSZvoxV+a8LK2dIxIi+Nq9aIjIGf76DRy9ppMEGBkF1YGsT9kU6Fz6rj2BcvyoIXEOfMm1gnnvl5YBknbDigaXOlChIeKFy8MkrN+/WYX15Wsyh7s=
+
+env:
+  global:
+    secure: uxHYYdx9lS/s7c2JFD+exMUNEZgi8+crn/+zDuzkfbd0gT1lIVnylYmrIfJtoZq8UkK2/RqUxBuCK4nMfxzHFumW/IFTbt3M/Xjeb3ENK+HAPEMVyBSR0UyyAClVPNPFn3lX55wEyvztH+C4pl7ll6tY97JLAkgvJ/dDY95YxFtm3C7ofG2Zt6vJ1y3+FwKHnHtoJBS9DgIV9nWTbroN421A+77MusWxnpl7FN0uHcD5Chk1GrV03JgwU5iLlYJQ1KAa1HywtRcWXzOLNTy7ffjkbKkPsCkNRfu2+KK6IMEclcTPi1KlVVHTRtB+GmsZg9Ygmbl+ca8NSncX6baEIYRDt9h8PKEj1BDtFHJoqVEWNbQKaZOl+WPJKZadr7JtgxOcBoQpNVJUPPM8osB6xtO+azQGt7Qqw8p9301rAWruGV48BEoKh2/NAX1rTN4I8x5JKvfUgm5eoOcdCA/pEzEKPjNnqIo5N39PY1itRek0HiAnl9liQlTRBNNuessWnNirY860GZ0OzeQXbX59b59/2K9838qJzBojElaifw3KSvYw0GS8vnvQixvCtlRDolFKrp0F8rGqEbuzTF0NW/XVXYvujZL1YXdIkWujTIA/eHWWZd+yaWM1ztGd07Ayp4JCuHrA6lZtkSPWnPyxYmCtDW6nxYJQI6gjJ0eQBdY=
