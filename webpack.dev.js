@@ -8,13 +8,27 @@ module.exports = merge(common, {
   devtool: 'eval',
   devServer: {
     historyApiFallback: true,
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, 'dist'),
     hot: true,
-  },
-  output: {
-    filename: '[name].[hash].js',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'stylus-loader',
+            options: {
+              import: path.resolve(__dirname, 'src/styles/colors.styl'),
+            },
+          },
+        ],
+      },
+    ],
+  },
 });

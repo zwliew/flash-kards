@@ -5,7 +5,6 @@ const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 const webpack = require('webpack');
-const path = require('path');
 
 module.exports = {
   plugins: [
@@ -30,19 +29,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-      },
-      {
-        test: /\.styl(us)?$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'stylus-loader',
-            options: {
-              import: path.resolve(__dirname, 'src/styles/colors.styl'),
-            },
-          },
-        ],
       },
       {
         test: /\.js$/,
