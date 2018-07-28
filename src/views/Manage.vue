@@ -11,7 +11,7 @@
         <Button @click="practice">Practice</Button>
         <Button
           v-if="$store.getters.isAdmin"
-          @click="addCard">Add Card</Button>
+          @click="edit">Edit</Button>
       </div>
     </div>
   </div>
@@ -44,8 +44,8 @@ export default {
     practice() {
       this.$router.push(`/practice/${this.id}`);
     },
-    addCard() {
-      this.$router.push(`/create/${this.$route.params.id}`);
+    edit() {
+      this.$router.push(`/edit/${this.$route.params.id}`);
     },
   },
 };

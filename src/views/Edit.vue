@@ -5,26 +5,24 @@
       class="container">
       <h1>New card for {{ title }}</h1>
       <div>
-        <input
-          id="front"
+        <Input
           v-model="front"
           type="text"
           name="front"
           class="input"
           placeholder="Front"
           required
-          :disabled="!isAdmin">
+          :disabled="!isAdmin" />
       </div>
       <div>
-        <input
-          id="back"
+        <Input
           v-model="back"
           type="text"
           name="back"
           class="input"
           placeholder="Back"
           :disabled="!isAdmin"
-          required>
+          required />
       </div>
       <Button
         :disabled="!isAdmin"
@@ -38,11 +36,13 @@
 
 <script>
 import Button from '../components/Button.vue';
+import Input from '../components/Input.vue';
 import { mapGetters } from 'vuex';
 
 export default {
   components: {
     Button,
+    Input,
   },
   data: () => ({
     front: '',
