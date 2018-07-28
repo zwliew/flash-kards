@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div v-if="user.uid">
+    <h1>Account</h1>
+    <div v-if="user.uid" class="photo-container">
       <img
         class="photo"
         :src="user.photo">
@@ -60,12 +61,14 @@ export default {
 <style lang="stylus" scoped>
 .container
   text-align center
-  margin 16px
 
-.photo
-  border-radius 50%
-  max-width 128px
-  max-height 128px
+.photo-container
+  padding 16px
+
+  .photo
+    border-radius 50%
+    max-width 128px
+    max-height 128px
 
 .badge
   color #fdd835

@@ -4,7 +4,9 @@
       <router-link to="/decks">Decks</router-link> |
       <router-link to="/account">Account</router-link>
     </nav>
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -28,4 +30,11 @@
   .router-link-active
     border-bottom 4px solid secondary-color-dark
     color secondary-color-dark
+
+.fade-enter-active, .fade-leave-active
+  transition opacity .2s ease
+
+.fade-enter, .fade-leave-active
+  opacity 0
+
 </style>
