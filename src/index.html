@@ -1,47 +1,40 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Flash Cards</title>
-    <base href="/">
     <meta charset="utf-8">
+    <title>Flash Cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#2196f3">
     <meta name="description" content="Quick, customizable flash cards for one to learn and memorize on the go.">
+
+    <base href="/">
+
+    <link rel="icon" href="favicon.ico">
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#2196f3">
+
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Flash Cards">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Flash Cards">
+
+    <link rel="apple-touch-icon" sizes="128x128" href="icon-128x128.png">
+
     <meta name="msapplication-TileImage" content="icon-128x128.png">
     <meta name="msapplication-TileColor" content="#2196f3">
     <meta name="msapplication-tap-highlight" content="no">
+
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@zwliew">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="flash-cards">
     <meta property="og:image" content="icon-128x128.png" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Flash Cards">
-    <link rel="apple-touch-icon" sizes="128x128" href="icon-128x128.png">
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="favicon.ico">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css"
-      integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54="
-      crossorigin="anonymous" />
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-    <style>
-      @font-face {
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu72xKOzY.woff2) format('woff2');
-        font-display: swap;
-      }
-      body {
-        font-family: Roboto, Helvetica, Arial, sans-serif;
-      }
-    </style>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
@@ -49,6 +42,16 @@
         });
       }
     </script>
+
+    <style>
+      body {
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <link rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css">
   </head>
   <body>
     <noscript>Please enable JavaScript to view this website.</noscript>
