@@ -22,6 +22,7 @@
   > a
     text-decoration none
     color black
+    padding 12px
     &:hover
       color secondary-color-dark
   .router-link-active
