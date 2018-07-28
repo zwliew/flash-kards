@@ -8,18 +8,23 @@
         <p><strong>Number of cards</strong>: {{ lengthText }}</p>
       </div>
       <div class="action-container">
-        <button @click="practice">Practice</button>
-        <button
+        <Button @click="practice">Practice</Button>
+        <Button
           v-if="$store.getters.isAdmin"
           @click="addCard"
-        >Add Card</button>
+        >Add Card</Button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import Button from '../components/Button.vue';
+
 export default {
+  components: {
+    Button
+  },
   computed: {
     tagline() {
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
