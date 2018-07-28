@@ -1,14 +1,17 @@
 <template>
   <div class="container">
     <div v-if="user.uid">
-      <img 
-        class="user-photo" 
+      <img
+        class="photo"
         :src="user.photo">
-      <p>{{ user.name }}</p>
+      <p>{{ user.name }} <font-awesome-icon 
+        v-if="$store.getters.isAdmin" 
+        class="badge" 
+        icon="star" /></p>
       <Button @click="logout">Log out</Button>
     </div>
-    <div 
-      v-show="!user.uid" 
+    <div
+      v-show="!user.uid"
       id="firebaseui-auth-container" />
   </div>
 </template>
@@ -26,7 +29,7 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
-    },
+    }
   },
   mounted() {
     let ui = firebaseui.auth.AuthUI.getInstance();
@@ -59,8 +62,11 @@ export default {
   text-align center
   margin 16px
 
-.user-photo
+.photo
   border-radius 50%
   max-width 128px
   max-height 128px
+
+.badge
+  color #fdd835
 </style>
