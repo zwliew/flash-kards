@@ -10,12 +10,21 @@
 
 <style lang="stylus" scoped>
 .container
-  font-family Roboto, sans-serif
   display flex
   flex-direction column
   justify-content center
 
 .nav
   text-align center
-  padding 32px
+  padding 16px
+  background #eee
+  text-transform uppercase
+  > a
+    text-decoration none
+    color black
+    &:hover
+      color secondary-color-dark
+  .router-link-active
+    border-bottom 4px solid secondary-color-dark
+    color secondary-color-dark
 </style>

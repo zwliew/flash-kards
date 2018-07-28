@@ -53,6 +53,7 @@ export default {
 <style lang="stylus" scoped>
 .container
   text-align center
+  margin 16px
 
 .user-photo
   border-radius 50%

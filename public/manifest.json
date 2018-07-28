@@ -4,7 +4,7 @@
   "description": "Quick, customizable flash cards for one to learn and memorize on the go.",
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#6200ee",
+  "theme_color": "#2196f3",
   "background_color": "#fff",
   "icons": [
     {

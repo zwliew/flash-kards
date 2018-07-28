@@ -24,7 +24,7 @@ export default {
   border-radius 4px
   padding 0 16px 0 16px
   height 36px
-  color #6200ee
+  color secondary-color
   text-transform uppercase
   font-weight bold
   transition background 0.3s

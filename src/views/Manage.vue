@@ -26,17 +26,19 @@ export default {
     Button
   },
   computed: {
+    deck() {
+      return this.$store.getters.getDeckById(this.id);
+    },
     tagline() {
+      if (this.deck === undefined) return '';
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
     },
     lengthText() {
+      if (this.deck === undefined) return '';
       return `${this.deck.cards.length} card${this.deck.cards.length !== 1 ? 's' : ''}`;
     },
     id() {
       return this.$route.params.id;
-    },
-    deck() {
-      return this.$store.getters.getDeckById(this.id);
     },
   },
   methods: {
