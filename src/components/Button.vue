@@ -29,7 +29,7 @@ export default {
   color secondary-color
   text-transform uppercase
   font-weight bold
-  transition background 0.3s
+  transition background 0.2s
   background white
   &:hover
     cursor pointer

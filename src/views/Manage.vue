@@ -8,7 +8,7 @@
         <p><strong>Number of cards</strong>: {{ lengthText }}</p>
       </div>
       <div class="action-container">
-        <Button @click="practice">Practice</Button>
+        <Button @click="study">Study</Button>
         <Button
           v-if="$store.getters.isAdmin"
           @click="edit">Edit</Button>
@@ -41,11 +41,11 @@ export default {
     },
   },
   methods: {
-    practice() {
-      this.$router.push(`/practice/${this.id}`);
+    study() {
+      this.$router.push(`/study/${this.id}`);
     },
     edit() {
-      this.$router.push(`/edit/${this.$route.params.id}`);
+      this.$router.push(`/edit/${this.id}`);
     },
   },
 };

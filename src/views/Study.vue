@@ -1,27 +1,27 @@
 <template>
   <div class="container">
     <header class="header">
-      <h1>Practice</h1>
-      <font-awesome-icon
-        icon="random"
-        class="icon"
-        title="Shuffle"
-        @click="shuffle" />
+      <h1>Study</h1>
     </header>
     <div v-if="deck">
       <Card :card="deck.cards[index]" />
-      <nav class="nav">
+      <div class="actions">
         <font-awesome-icon
-          class="nav-button"
+          class="action"
           icon="arrow-left"
           title="Previous"
           @click="prevCard" />
         <font-awesome-icon
-          class="nav-button"
+          class="action"
+          icon="random"
+          title="Shuffle"
+          @click="shuffle" />
+        <font-awesome-icon
+          class="action"
           icon="arrow-right"
           title="Next"
           @click="nextCard" />
-      </nav>
+      </div>
     </div>
     <div v-else>
       Loading…
@@ -79,26 +79,22 @@ export default {
   max-height 80%
   margin auto
 
-.nav
-  padding 16px
-  display flex
-  justify-content space-evenly
-
 .header
   display flex
   justify-content space-evenly
   align-items center
 
-.icon
-  margin-left 16px
-  padding 8px
-  &:hover
-    cursor pointer
+.actions
+  display flex
+  justify-content center
 
-.nav-button
-  padding 16px
-  border-radius 50%
-  border 1px solid #b0b0b0
-  &:hover
-    cursor pointer
+  .action
+    padding 16px
+    margin 16px 8px
+    border-radius 50%
+    border 1px solid #b0b0b0
+    transition: background 0.2s
+    &:hover
+      cursor pointer
+      background: #eee
 </style>

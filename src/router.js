@@ -4,7 +4,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const Decks = () => import('./views/Decks.vue');
-const Practice  = () => import('./views/Practice.vue');
+const Study  = () => import('./views/Study.vue');
 const Edit = () => import('./views/Edit.vue');
 const Account = () => import('./views/Account.vue');
 const Manage = () => import('./views/Manage.vue');
@@ -17,8 +17,8 @@ export default new VueRouter({
       component: Decks,
     },
     {
-      path: '/practice/:id',
-      component: Practice,
+      path: '/Study/:id',
+      component: Study,
     },
     {
       path: '/edit/:id',

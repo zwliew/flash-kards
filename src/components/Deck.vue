@@ -40,7 +40,7 @@ export default {
   min-height 240px
   padding 16px
   margin 16px
-  transition box-shadow 0.12s
+  transition box-shadow 0.2s
   &:hover
     cursor pointer
     box-shadow 0px 1px 6px rgba(0, 0, 0, 0.25)
