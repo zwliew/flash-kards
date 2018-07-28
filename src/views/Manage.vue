@@ -11,8 +11,7 @@
         <Button @click="practice">Practice</Button>
         <Button
           v-if="$store.getters.isAdmin"
-          @click="addCard"
-        >Add Card</Button>
+          @click="addCard">Add Card</Button>
       </div>
     </div>
   </div>

@@ -6,24 +6,21 @@
         icon="random"
         class="icon"
         title="Shuffle"
-        @click="shuffle"
-      ></font-awesome-icon>
+        @click="shuffle" />
     </header>
     <div v-if="deck">
-      <Card :card="deck.cards[index]"></Card>
+      <Card :card="deck.cards[index]" />
       <nav class="nav">
         <font-awesome-icon
           class="nav-button"
           icon="arrow-left"
           title="Previous"
-          @click="prevCard"
-        ></font-awesome-icon>
+          @click="prevCard" />
         <font-awesome-icon
           class="nav-button"
           icon="arrow-right"
           title="Next"
-          @click="nextCard"
-        ></font-awesome-icon>
+          @click="nextCard" />
       </nav>
     </div>
     <div v-else>
@@ -36,6 +33,9 @@
 import Card from '../components/Card.vue';
 
 export default {
+  components: {
+    Card,
+  },
   data: () => ({
     index: 0,
   }),
@@ -66,9 +66,6 @@ export default {
     shuffle() {
       this.index = Math.floor(Math.random() * this.deck.cards.length);
     },
-  },
-  components: {
-    Card,
   },
 };
 </script>

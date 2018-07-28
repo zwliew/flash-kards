@@ -4,7 +4,7 @@
       <router-link to="/decks">Decks</router-link> |
       <router-link to="/account">Account</router-link>
     </nav>
-    <router-view></router-view>
+    <router-view />
   </div>
 </template>
 

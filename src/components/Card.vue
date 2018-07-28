@@ -2,8 +2,7 @@
   <div class="container">
     <h1>{{ visibleText }}</h1>
     <Button
-      @click="flipped = !flipped"
-    >Flip</Button>
+      @click="flipped = !flipped">Flip</Button>
   </div>
 </template>
 
@@ -11,9 +10,15 @@
 import Button from '../components/Button.vue';
 
 export default {
-  props: [
-    'card',
-  ],
+  components: {
+    Button,
+  },
+  props: {
+    card: {
+      type: Object,
+      default: null
+    }
+  },
   data: () => ({
     flipped: false,
   }),
@@ -26,9 +31,6 @@ export default {
     card() {
       this.flipped = false;
     },
-  },
-  components: {
-    Button,
   },
 };
 </script>

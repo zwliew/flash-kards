@@ -2,19 +2,21 @@
   <div>
     <button
       class="button"
-      @click="$emit('click')"
       :disabled="disabled"
-    >
-      <slot></slot>
+      @click="$emit('click')">
+      <slot />
     </button>
   </div>
 </template>
 
 <script>
 export default {
-  props: [
-    'disabled',
-  ],
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 

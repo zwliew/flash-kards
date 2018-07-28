@@ -15,7 +15,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 new Vue({
   router,
   store,
-  render: h => h(App),
   created() {
     firebase.initializeApp({
       apiKey: "AIzaSyAnnRBfU4g3s3jGUWP59_TkSsHUisG3dCw",
@@ -38,4 +37,5 @@ new Vue({
     });
     this.$store.dispatch('SET_DECKS_REF');
   },
+  render: h => h(App),
 }).$mount('#app');

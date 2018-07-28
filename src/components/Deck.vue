@@ -1,8 +1,7 @@
 <template>
   <div
     class="container"
-    @click="openDeck(deck.id)"
-  >
+    @click="openDeck(deck.id)">
     <h1>{{ deck.title }}</h1>
     <em>{{ tagline }}</em>
     <p>{{ lengthText }}</p>
@@ -11,7 +10,12 @@
 
 <script>
 export default {
-  props: ['deck'],
+  props: {
+    deck: {
+      type: Object,
+      default: null
+    }
+  },
   computed: {
     tagline() {
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);

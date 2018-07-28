@@ -1,11 +1,15 @@
 <template>
   <div class="container">
     <div v-if="user.uid">
-      <img class="user-photo" :src="user.photo">
+      <img 
+        class="user-photo" 
+        :src="user.photo">
       <p>{{ user.name }}</p>
       <Button @click="logout">Log out</Button>
     </div>
-    <div v-show="!user.uid" id="firebaseui-auth-container"></div>
+    <div 
+      v-show="!user.uid" 
+      id="firebaseui-auth-container" />
   </div>
 </template>
 
@@ -24,12 +28,6 @@ export default {
       return this.$store.state.user;
     },
   },
-  methods: {
-    logout() {
-      this.$router.push('/');
-      firebase.auth().signOut();
-    },
-  },
   mounted() {
     let ui = firebaseui.auth.AuthUI.getInstance();
     if (!ui) {
@@ -46,6 +44,12 @@ export default {
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
       ],
     });
+  },
+  methods: {
+    logout() {
+      this.$router.push('/');
+      firebase.auth().signOut();
+    },
   },
 };
 </script>

@@ -3,10 +3,9 @@
     <h1>Decks</h1>
     <div v-if="decks.length > 0">
       <Deck
-      v-for="deck in decks"
-      :key="deck.id"
-      :deck="deck"
-      ></Deck>
+        v-for="deck in decks"
+        :key="deck.id"
+        :deck="deck" />
     </div>
     <div v-else>
       Loading…

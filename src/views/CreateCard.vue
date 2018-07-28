@@ -1,33 +1,34 @@
 <template>
   <div class="container">
-    <div v-if="title" class="container">
+    <div 
+      v-if="title" 
+      class="container">
       <h1>New card for {{ title }}</h1>
       <div>
         <input
+          id="front"
+          v-model="front"
           type="text"
           name="front"
-          id="front"
           class="input"
           placeholder="Front"
           required
-          :disabled="!isAdmin"
-          v-model="front">
+          :disabled="!isAdmin">
       </div>
       <div>
         <input
+          id="back"
+          v-model="back"
           type="text"
           name="back"
-          id="back"
           class="input"
           placeholder="Back"
-          v-model="back"
           :disabled="!isAdmin"
           required>
       </div>
       <Button
         :disabled="!isAdmin"
-        @click="submit"
-      >Submit</Button>
+        @click="submit">Submit</Button>
     </div>
     <div v-else>
       Loading…
@@ -63,6 +64,13 @@ export default {
       'isAdmin',
     ]),
   },
+  watch: {
+    cardAdded(now, old) {
+      if (now !== old && now) {
+        this.$router.push('/');
+      }
+    }
+  },
   methods: {
     submit() {
       const REGEX_TEST = /^[A-Za-z0-9(),;. -]+$/;
@@ -76,13 +84,6 @@ export default {
           front: this.front,
           back: this.back,
         });
-      }
-    }
-  },
-  watch: {
-    cardAdded(now, old) {
-      if (now !== old && now) {
-        this.$router.push('/');
       }
     }
   },
