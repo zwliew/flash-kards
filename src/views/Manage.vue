@@ -1,17 +1,19 @@
 <template>
   <div class="container">
     <h1>Manage</h1>
-    <div>
-      <p><strong>Title</strong>: {{ deck.title }}</p>
-      <p><strong>Tags</strong>: {{ tagline }}</p>
-      <p>Number of cards: {{ lengthText }}</p>
-    </div>
-    <div>
-      <button @click="practice">Practice</button>
-      <button
-        v-if="$store.getters.isAdmin"
-        @click="addCard"
-      >Add Card</button>
+    <div v-if="deck !== undefined">
+      <div>
+        <p><strong>Title</strong>: {{ deck.title }}</p>
+        <p><strong>Tags</strong>: {{ tagline }}</p>
+        <p><strong>Number of cards</strong>: {{ lengthText }}</p>
+      </div>
+      <div class="action-container">
+        <button @click="practice">Practice</button>
+        <button
+          v-if="$store.getters.isAdmin"
+          @click="addCard"
+        >Add Card</button>
+      </div>
     </div>
   </div>
 </template>
@@ -48,4 +50,8 @@ export default {
   display flex
   flex-direction column
   align-items center
+
+.action-container
+  display flex
+  justify-content space-evenly
 </style>
