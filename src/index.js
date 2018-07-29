@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import firebase from 'firebase/app';
-import 'firebase/firestore';
 import 'firebase/auth';
 import router from './router.js';
 import store from './store/index.js';
@@ -18,8 +17,9 @@ new Vue({
       storageBucket: "flash-cards-e27e5.appspot.com",
       messagingSenderId: "629649052365",
     });
-    const firestore = firebase.firestore();
-    firestore.settings({ timestampsInSnapshots: true });
+    firebase.firestore().settings({
+      timestampsInSnapshots: true,
+    });
     firebase.auth().onAuthStateChanged((user) => {
       const payload = {};
       if (user) {
