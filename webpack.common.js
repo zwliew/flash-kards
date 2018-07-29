@@ -17,7 +17,6 @@ module.exports = {
       inline: 'runtime',
       preload: {
         test: /\.js$/,
-        chunks: 'all',
       },
     }),
     new CopyWebpackPlugin([{
