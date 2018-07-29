@@ -3,6 +3,7 @@ const common = require('./webpack.common.js');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const path = require('path');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -31,5 +32,6 @@ module.exports = merge(common, {
       filename: '[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin(),
+    new BundleAnalyzerPlugin(),
   ],
 });
