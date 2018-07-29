@@ -1,13 +1,17 @@
 <template>
   <div class="container">
     <h1>Account</h1>
-    <div v-if="user.uid" class="photo-container">
+    <div 
+      v-if="user.uid" 
+      class="photo-container">
       <img
         class="photo"
         :src="user.photo">
       <p>
         {{ user.name }}
-        <i v-if="$store.getters.isAdmin" class="material-icons badge">star</i>
+        <i 
+          v-if="$store.getters.isAdmin" 
+          class="material-icons badge">star</i>
       </p>
       <Button @click="logout">Log out</Button>
     </div>

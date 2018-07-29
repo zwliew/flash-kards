@@ -4,7 +4,9 @@
       <router-link to="/decks">Decks</router-link> |
       <router-link to="/account">Account</router-link>
     </nav>
-    <transition name="fade" mode="out-in">
+    <transition 
+      name="fade" 
+      mode="out-in">
       <router-view />
     </transition>
   </div>
