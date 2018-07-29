@@ -32,6 +32,8 @@ module.exports = merge(common, {
       filename: '[name].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin(),
-    new BundleAnalyzerPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+    }),
   ],
 });
