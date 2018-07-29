@@ -1,20 +1,25 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      inlineSource: 'runtime~.+\\.js',
     }),
-    new webpack.HashedModuleIdsPlugin(),
-    new InlineSourcePlugin(),
+    new ScriptExtHtmlWebpackPlugin({
+      inline: 'runtime',
+      preload: {
+        test: /\.js$/,
+        chunks: 'all',
+      },
+    }),
     new CopyWebpackPlugin([{
       from: 'public',
     }]),
