@@ -6,21 +6,18 @@
     <div v-if="deck">
       <Card :card="deck.cards[index]" />
       <div class="actions">
-        <font-awesome-icon
-          class="action"
-          icon="arrow-left"
+        <i
+          class="material-icons action"
           title="Previous"
-          @click="prevCard" />
-        <font-awesome-icon
-          class="action"
-          icon="random"
+          @click="index = prevIndex">arrow_back</i>
+        <i
+          class="material-icons action"
           title="Shuffle"
-          @click="shuffle" />
-        <font-awesome-icon
-          class="action"
-          icon="arrow-right"
+          @click="shuffle">shuffle</i>
+        <i
+          class="material-icons action"
           title="Next"
-          @click="nextCard" />
+          @click="index = nextIndex">arrow_forward</i>
       </div>
     </div>
     <div v-else>
@@ -43,26 +40,14 @@ export default {
     deck() {
       return this.$store.getters.getDeckById(this.$route.params.id);
     },
+    nextIndex() {
+      return this.index === this.deck.cards.length - 1 ? 0 : this.index + 1;
+    },
+    prevIndex() {
+      return this.index === 0 ? this.deck.cards.length - 1 : this.index - 1;
+    },
   },
   methods: {
-    nextCard() {
-      this.index = do {
-        if (this.index === this.deck.cards.length - 1) {
-          0;
-        } else {
-          this.index + 1;
-        }
-      };
-    },
-    prevCard() {
-      this.index = do {
-        if (this.index === 0) {
-          this.deck.cards.length - 1;
-        } else {
-          this.index - 1;
-        }
-      };
-    },
     shuffle() {
       this.index = Math.floor(Math.random() * this.deck.cards.length);
     },

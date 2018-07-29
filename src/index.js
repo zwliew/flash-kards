@@ -5,12 +5,6 @@ import 'firebase/auth';
 import router from './router.js';
 import store from './store/index.js';
 import App from './App.vue';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faRandom, faArrowRight, faArrowLeft, faStar } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-
-library.add(faRandom, faArrowRight, faArrowLeft, faStar);
-Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 new Vue({
   router,

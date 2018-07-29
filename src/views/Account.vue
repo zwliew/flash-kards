@@ -5,10 +5,10 @@
       <img
         class="photo"
         :src="user.photo">
-      <p>{{ user.name }} <font-awesome-icon 
-        v-if="$store.getters.isAdmin" 
-        class="badge" 
-        icon="star" /></p>
+      <p>
+        {{ user.name }}
+        <i v-if="$store.getters.isAdmin" class="material-icons badge">star</i>
+      </p>
       <Button @click="logout">Log out</Button>
     </div>
     <div
