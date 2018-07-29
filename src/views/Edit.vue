@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div 
-      v-if="title" 
+    <div
+      v-if="title"
       class="container">
       <h1>New card for {{ title }}</h1>
       <div>
-        <Input
+        <MyInput
           v-model="front"
           type="text"
           name="front"
@@ -15,7 +15,7 @@
           :disabled="!isAdmin" />
       </div>
       <div>
-        <Input
+        <MyInput
           v-model="back"
           type="text"
           name="back"
@@ -36,13 +36,13 @@
 
 <script>
 import Button from '../components/Button.vue';
-import Input from '../components/Input.vue';
+import MyInput from '../components/MyInput.vue';
 import { mapGetters } from 'vuex';
 
 export default {
   components: {
     Button,
-    Input,
+    MyInput,
   },
   data: () => ({
     front: '',
