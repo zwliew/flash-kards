@@ -67,7 +67,7 @@ export default {
   watch: {
     cardAdded(now, old) {
       if (now !== old && now) {
-        this.$router.push('/');
+        this.$router.push(`/manage/${this.deckId}`);
       }
     }
   },
