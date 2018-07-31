@@ -9,7 +9,7 @@
         <i
           class="material-icons action"
           title="Previous"
-          @click="index = prevIndex">arrow_back</i>
+          @click="prev">arrow_back</i>
         <i
           class="material-icons action"
           title="Shuffle"
@@ -17,7 +17,7 @@
         <i
           class="material-icons action"
           title="Next"
-          @click="index = nextIndex">arrow_forward</i>
+          @click="next">arrow_forward</i>
       </div>
     </div>
     <div v-else>
@@ -36,6 +36,21 @@ export default {
   data: () => ({
     index: 0,
   }),
+  mounted() {
+    window.addEventListener('keydown', (event) => {
+      switch (event.key) {
+        case 'ArrowLeft':
+          this.prev();
+          break;
+        case 'ArrowRight':
+          this.next();
+          break;
+        case 's':
+          this.shuffle();
+          break;
+      }
+    });
+  },
   computed: {
     deck() {
       return this.$store.getters.getDeckById(this.$route.params.id);
@@ -50,6 +65,12 @@ export default {
   methods: {
     shuffle() {
       this.index = Math.floor(Math.random() * this.deck.cards.length);
+    },
+    next() {
+      this.index = this.nextIndex;
+    },
+    prev() {
+      this.index = this.prevIndex;
     },
   },
 };
