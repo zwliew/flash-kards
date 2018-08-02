@@ -15,14 +15,15 @@
           :disabled="!isAdmin" />
       </div>
       <div>
-        <MyInput
+        <textarea
           v-model="back"
           type="text"
           name="back"
           class="input"
           placeholder="Back"
           :disabled="!isAdmin"
-          required />
+          rows="8"
+          required></textarea>
       </div>
       <Button
         :disabled="!isAdmin"

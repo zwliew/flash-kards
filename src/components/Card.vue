@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <h1>{{ visibleText }}</h1>
+    <h1 v-if="!flipped">{{ visibleText }}</h1>
+    <p v-if="flipped" class="back-text">{{ visibleText }}</p>
     <Button
       @click="flipped = !flipped">Flip</Button>
   </div>
@@ -44,4 +45,7 @@ export default {
   border-radius 4px
   text-align center
   padding 16px
+
+.back-text
+  font-size: 1.25rem
 </style>
