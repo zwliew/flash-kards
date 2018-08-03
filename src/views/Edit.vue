@@ -74,11 +74,8 @@ export default {
   },
   methods: {
     submit() {
-      const REGEX_TEST = /^[A-Za-z0-9(),;.'" -]+$/;
       if (this.front.length === 0 || this.back.length === 0) {
         alert('Please fill in both the front and back text.')
-      } else if (!REGEX_TEST.test(this.front) || !REGEX_TEST.test(this.back)) {
-        alert('Please input only valid characters.');
       } else {
         this.$store.dispatch('ADD_CARD', {
           deckId: this.deckId,
