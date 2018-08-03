@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <h1 v-if="!flipped">{{ visibleText }}</h1>
-    <p v-if="flipped" class="back-text">{{ visibleText }}</p>
+    <p 
+      v-if="flipped" 
+      class="back-text">{{ visibleText }}</p>
     <Button
       @click="flipped = !flipped">Flip</Button>
   </div>

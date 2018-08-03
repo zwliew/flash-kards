@@ -23,7 +23,7 @@
           placeholder="Back"
           :disabled="!isAdmin"
           rows="8"
-          required></textarea>
+          required />
       </div>
       <Button
         :disabled="!isAdmin"

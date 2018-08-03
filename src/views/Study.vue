@@ -36,6 +36,17 @@ export default {
   data: () => ({
     index: 0,
   }),
+  computed: {
+    deck() {
+      return this.$store.getters.getDeckById(this.$route.params.id);
+    },
+    nextIndex() {
+      return this.index === this.deck.cards.length - 1 ? 0 : this.index + 1;
+    },
+    prevIndex() {
+      return this.index === 0 ? this.deck.cards.length - 1 : this.index - 1;
+    },
+  },
   mounted() {
     window.addEventListener('keydown', (event) => {
       switch (event.key) {
@@ -50,17 +61,6 @@ export default {
           break;
       }
     });
-  },
-  computed: {
-    deck() {
-      return this.$store.getters.getDeckById(this.$route.params.id);
-    },
-    nextIndex() {
-      return this.index === this.deck.cards.length - 1 ? 0 : this.index + 1;
-    },
-    prevIndex() {
-      return this.index === 0 ? this.deck.cards.length - 1 : this.index - 1;
-    },
   },
   methods: {
     shuffle() {
