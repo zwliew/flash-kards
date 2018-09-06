@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1 v-if="!flipped">{{ visibleText }}</h1>
+    <h1
+      v-if="!flipped"
+      class="front-text">{{ visibleText }}</h1>
     <p 
       v-if="flipped" 
       class="back-text">{{ visibleText }}</p>
@@ -45,8 +47,10 @@ export default {
   min-height 120px
   border 1px solid #b0b0b0
   border-radius 4px
-  text-align center
   padding 16px
+
+.front-text
+  text-align center
 
 .back-text
   font-size: 1.25rem
