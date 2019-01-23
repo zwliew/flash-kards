@@ -41,10 +41,10 @@ export default {
       return this.$store.getters.getDeckById(this.$route.params.id);
     },
     nextIndex() {
-      return this.index === this.deck.cards.length - 1 ? 0 : this.index + 1;
+      return (this.index + 1) % this.deck.cards.length;
     },
     prevIndex() {
-      return this.index === 0 ? this.deck.cards.length - 1 : this.index - 1;
+      return (this.index - 1 + this.deck.cards.length) % this.deck.cards.length;
     },
   },
   mounted() {
