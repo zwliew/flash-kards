@@ -45,7 +45,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "dependencies": {
-    "firebase": "6.0.3",
+    "firebase": "6.0.3-canary.ae32b2b",
     "firebaseui": "4.0.0",
     "vue": "2.6.10",
     "vue-router": "3.0.6",
