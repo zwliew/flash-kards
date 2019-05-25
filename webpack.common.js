@@ -9,7 +9,7 @@ const webpack = require('webpack');
 module.exports = {
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
     }),

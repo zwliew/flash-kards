@@ -17,9 +17,7 @@ new Vue({
       storageBucket: "flash-cards-e27e5.appspot.com",
       messagingSenderId: "629649052365",
     });
-    firebase.firestore().settings({
-      timestampsInSnapshots: true,
-    });
+    firebase.firestore().settings({});
     firebase.auth().onAuthStateChanged((user) => {
       const payload = {};
       if (user) {

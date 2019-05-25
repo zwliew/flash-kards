@@ -1,10 +1,10 @@
-import { firebaseAction } from 'vuexfire';
+import { firestoreAction } from 'vuexfire';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 export default {
-  SET_DECKS_REF: firebaseAction(({ bindFirebaseRef }) => {
-    bindFirebaseRef('decks', firebase.firestore().collection('decks'));
+  SET_DECKS_REF: firestoreAction(({ bindFirestoreRef }) => {
+    bindFirestoreRef('decks', firebase.firestore().collection('decks'));
   }),
   ADD_CARD({ getters }, { deckId, front, back }) {
     firebase.firestore().collection('decks').doc(deckId).update({

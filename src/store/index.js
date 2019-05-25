@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { firebaseMutations } from 'vuexfire';
+import { vuexfireMutations } from 'vuexfire';
 import getters from './getters.js';
 import mutations from './mutations.js';
 import actions from './actions.js';
@@ -20,6 +20,6 @@ export default new Vuex.Store({
   actions,
   mutations: {
     ...mutations,
-    ...firebaseMutations,
+    ...vuexfireMutations,
   },
 });
