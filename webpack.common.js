@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
