@@ -1,7 +1,5 @@
 # Flash Cards
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/zwliew/flash-cards.svg)](https://greenkeeper.io/)
-
 Quick, customizable flash cards for one to learn and memorize on the go.
 
 ## Background
