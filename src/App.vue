@@ -1,5 +1,5 @@
 <template>
-  <div class=".container">
+  <div class="app">
     <nav class="nav">
       <router-link to="/decks">
         Decks
@@ -18,10 +18,8 @@
 </template>
 
 <style lang="stylus" scoped>
-.container
-  display flex
-  flex-direction column
-  justify-content center
+.app
+  font-family Roboto, Helvetica, Arial, sans-serif
 
 .nav
   text-align center
@@ -43,4 +41,9 @@
 
 .fade-enter, .fade-leave-active
   opacity 0
+</style>
+
+<style lang="stylus">
+body, h1, p
+  margin 0
 </style>
