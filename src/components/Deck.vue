@@ -38,8 +38,8 @@ export default {
   border-radius 4px
   min-width 240px
   min-height 240px
-  padding 16px
-  margin 16px
+  padding 0 16px
+  text-align center
   transition box-shadow 0.2s
   &:hover
     cursor pointer

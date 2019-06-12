@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>Decks</h1>
-    <div v-if="decks.length > 0">
+    <div v-if="decks.length > 0" class="deck-list">
       <Deck
         v-for="deck in decks"
         :key="deck.id"
@@ -30,7 +30,21 @@ export default {
 
 <style lang="stylus" scoped>
 .container
+  align-items center
   display flex
   flex-direction column
-  align-items center
+
+.deck-list
+  display grid
+  grid-column-gap 16px
+  grid-row-gap 16px
+  padding 0 16px
+
+@media (min-width: 600px)
+  .deck-list
+    grid-template-columns repeat(2, 1fr)
+
+@media (min-width: 900px)
+  .deck-list
+    grid-template-columns repeat(3, 1fr)
 </style>
