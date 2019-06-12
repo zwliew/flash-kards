@@ -1,9 +1,10 @@
 <template>
   <div class="container">
-    <h1>Account</h1>
+    <h1 class="title">
+      Account
+    </h1>
     <div 
       v-if="user.uid" 
-      class="photo-container"
     >
       <img
         class="photo"
@@ -72,13 +73,13 @@ export default {
 .container
   text-align center
 
-.photo-container
-  padding 16px
+.title
+  margin 16px 0
 
-  .photo
-    border-radius 50%
-    max-width 128px
-    max-height 128px
+.photo
+  border-radius 50%
+  max-width 128px
+  max-height 128px
 
 .badge
   color #fdd835

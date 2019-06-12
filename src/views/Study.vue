@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <header class="header">
-      <h1>Study</h1>
+      <h1 class="title">
+        Study
+      </h1>
     </header>
     <div v-if="deck">
       <Card :card="deck.cards[index]" />
@@ -92,6 +94,9 @@ export default {
   display flex
   justify-content space-evenly
   align-items center
+
+.title
+  margin 16px 0
 
 .actions
   display flex

@@ -37,9 +37,7 @@ export default {
 .container
   border 1px solid #b0b0b0
   border-radius 4px
-  min-width 240px
-  min-height 240px
-  padding 0 16px
+  padding 8px 16px 16px 16px
   text-align center
   transition box-shadow 0.2s
   &:hover

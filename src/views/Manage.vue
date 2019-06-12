@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1>Manage</h1>
+    <h1 class="title">
+      Manage
+    </h1>
     <div v-if="deck !== undefined">
       <div>
         <p><strong>Title</strong>: {{ deck.title }}</p>
@@ -61,6 +63,9 @@ export default {
   display flex
   flex-direction column
   align-items center
+
+.title
+  margin 16px 0
 
 .action-container
   display flex

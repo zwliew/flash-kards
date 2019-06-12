@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <h1>Decks</h1>
+    <h1 class="title">
+      Decks
+    </h1>
     <div
       v-if="decks.length > 0"
       class="deck-list"
@@ -38,11 +40,14 @@ export default {
   display flex
   flex-direction column
 
+.title
+  margin 16px 0
+
 .deck-list
   display grid
   grid-column-gap 16px
   grid-row-gap 16px
-  padding 0 16px
+  padding 0 8px
 
 @media (min-width: 600px)
   .deck-list
