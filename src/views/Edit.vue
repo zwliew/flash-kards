@@ -2,7 +2,8 @@
   <div class="container">
     <div
       v-if="title"
-      class="container">
+      class="container"
+    >
       <h1>New card for {{ title }}</h1>
       <div>
         <MyInput
@@ -12,7 +13,8 @@
           class="input"
           placeholder="Front"
           required
-          :disabled="!isAdmin" />
+          :disabled="!isAdmin"
+        />
       </div>
       <div>
         <textarea
@@ -23,11 +25,15 @@
           placeholder="Back"
           :disabled="!isAdmin"
           rows="8"
-          required />
+          required
+        />
       </div>
       <Button
         :disabled="!isAdmin"
-        @click="submit">Submit</Button>
+        @click="submit"
+      >
+        Submit
+      </Button>
     </div>
     <div v-else>
       Loading…

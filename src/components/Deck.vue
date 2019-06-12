@@ -1,7 +1,8 @@
 <template>
   <div
     class="container"
-    @click="openDeck(deck.id)">
+    @click="openDeck(deck.id)"
+  >
     <h1>{{ deck.title }}</h1>
     <em>{{ tagline }}</em>
     <p>{{ lengthText }}</p>

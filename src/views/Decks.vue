@@ -1,11 +1,15 @@
 <template>
   <div class="container">
     <h1>Decks</h1>
-    <div v-if="decks.length > 0" class="deck-list">
+    <div
+      v-if="decks.length > 0"
+      class="deck-list"
+    >
       <Deck
         v-for="deck in decks"
         :key="deck.id"
-        :deck="deck" />
+        :deck="deck"
+      />
     </div>
     <div v-else>
       Loading…

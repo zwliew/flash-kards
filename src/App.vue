@@ -1,12 +1,17 @@
 <template>
   <div class=".container">
     <nav class="nav">
-      <router-link to="/decks">Decks</router-link> |
-      <router-link to="/account">Account</router-link>
+      <router-link to="/decks">
+        Decks
+      </router-link> |
+      <router-link to="/account">
+        Account
+      </router-link>
     </nav>
     <transition 
       name="fade" 
-      mode="out-in">
+      mode="out-in"
+    >
       <router-view />
     </transition>
   </div>

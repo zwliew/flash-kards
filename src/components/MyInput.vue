@@ -7,7 +7,8 @@
     :required="required"
     :disabled="disabled"
     :value="value"
-    @input="$emit('input', $event.target.value)">
+    @input="$emit('input', $event.target.value)"
+  >
 </template>
 
 <script>

@@ -3,21 +3,27 @@
     <h1>Account</h1>
     <div 
       v-if="user.uid" 
-      class="photo-container">
+      class="photo-container"
+    >
       <img
         class="photo"
-        :src="user.photo">
+        :src="user.photo"
+      >
       <p>
         {{ user.name }}
         <i 
           v-if="$store.getters.isAdmin" 
-          class="material-icons badge">star</i>
+          class="material-icons badge"
+        >star</i>
       </p>
-      <Button @click="logout">Log out</Button>
+      <Button @click="logout">
+        Log out
+      </Button>
     </div>
     <div
       v-show="!user.uid"
-      id="firebaseui-auth-container" />
+      id="firebaseui-auth-container"
+    />
   </div>
 </template>
 

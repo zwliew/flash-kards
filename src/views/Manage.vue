@@ -8,10 +8,15 @@
         <p><strong>Number of cards</strong>: {{ lengthText }}</p>
       </div>
       <div class="action-container">
-        <Button @click="study">Study</Button>
+        <Button @click="study">
+          Study
+        </Button>
         <Button
           v-if="$store.getters.isAdmin"
-          @click="edit">Edit</Button>
+          @click="edit"
+        >
+          Edit
+        </Button>
       </div>
     </div>
   </div>

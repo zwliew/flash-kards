@@ -2,12 +2,21 @@
   <div class="container">
     <h1
       v-if="!flipped"
-      class="front-text">{{ visibleText }}</h1>
+      class="front-text"
+    >
+      {{ visibleText }}
+    </h1>
     <p 
       v-if="flipped" 
-      class="back-text">{{ visibleText }}</p>
+      class="back-text"
+    >
+      {{ visibleText }}
+    </p>
     <Button
-      @click="flipped = !flipped">Flip</Button>
+      @click="flipped = !flipped"
+    >
+      Flip
+    </Button>
   </div>
 </template>
 

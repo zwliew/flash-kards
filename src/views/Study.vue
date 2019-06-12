@@ -9,15 +9,18 @@
         <i
           class="material-icons action"
           title="Previous"
-          @click="prev">arrow_back</i>
+          @click="prev"
+        >arrow_back</i>
         <i
           class="material-icons action"
           title="Shuffle"
-          @click="shuffle">shuffle</i>
+          @click="shuffle"
+        >shuffle</i>
         <i
           class="material-icons action"
           title="Next"
-          @click="next">arrow_forward</i>
+          @click="next"
+        >arrow_forward</i>
       </div>
     </div>
     <div v-else>
