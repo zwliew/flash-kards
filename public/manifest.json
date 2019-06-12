@@ -1,6 +1,6 @@
 {
-  "name": "Flash Cards",
-  "short_name": "Flash Cards",
+  "name": "Flash Kards",
+  "short_name": "Flash Kards",
   "description": "Quick, customizable flash cards for one to learn and memorize on the go.",
   "start_url": "/",
   "display": "standalone",
