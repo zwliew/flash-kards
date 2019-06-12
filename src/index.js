@@ -10,12 +10,13 @@ new Vue({
   store,
   created() {
     firebase.initializeApp({
-      apiKey: "AIzaSyAnnRBfU4g3s3jGUWP59_TkSsHUisG3dCw",
-      authDomain: "flash-cards-e27e5.firebaseapp.com",
-      databaseURL: "https://flash-cards-e27e5.firebaseio.com",
-      projectId: "flash-cards-e27e5",
-      storageBucket: "flash-cards-e27e5.appspot.com",
-      messagingSenderId: "629649052365",
+      apiKey: "AIzaSyBMaNVcvKJiVQhdA0wr5B7TZeZApJV1oAc",
+      authDomain: "flash-kards.firebaseapp.com",
+      databaseURL: "https://flash-kards.firebaseio.com",
+      projectId: "flash-kards",
+      storageBucket: "flash-kards.appspot.com",
+      messagingSenderId: "664546075542",
+      appId: "1:664546075542:web:171d8e625f0defdb"
     });
     firebase.firestore().settings({});
     firebase.auth().onAuthStateChanged((user) => {
