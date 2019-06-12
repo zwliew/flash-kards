@@ -47,6 +47,5 @@ export default {
   background none
   border 0
   border-bottom 2px solid #b0b0b0
-  margin 16px
   font-size 1.25rem
 </style>

@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <button
-      class="button"
-      :disabled="disabled"
-      @click="$emit('click')"
-    >
-      <slot />
-    </button>
-  </div>
+  <button
+    class="button"
+    :disabled="disabled"
+    @click="$emit('click')"
+  >
+    <slot />
+  </button>
 </template>
 
 <script>
@@ -23,6 +21,8 @@ export default {
 
 <style lang="stylus" scoped>
 .button
+  focused-color = #eee
+
   border none
   border-radius 4px
   padding 0 16px 0 16px
@@ -30,9 +30,13 @@ export default {
   color secondary-color
   text-transform uppercase
   font-weight bold
-  transition background 0.2s
+  transition background 0.2s ease-out
   background white
+
   &:hover
     cursor pointer
-    background #eee
+    background focused-color
+
+  &:focus
+    background focused-color
 </style>

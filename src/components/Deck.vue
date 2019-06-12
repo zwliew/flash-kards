@@ -1,12 +1,12 @@
 <template>
-  <div
-    class="container"
-    @click="openDeck(deck.id)"
+  <router-link
+    :to="`/manage/${deck.id}`"
+    class="deck"
   >
     <h1>{{ deck.title }}</h1>
     <em>{{ tagline }}</em>
     <p>{{ lengthText }}</p>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -25,22 +25,25 @@ export default {
       return `${this.deck.cards.length} card${this.deck.cards.length !== 1 ? 's' : ''}`;
     },
   },
-  methods: {
-    openDeck(id) {
-      this.$router.push(`/manage/${id}`);
-    },
-  },
 };
 </script>
 
 <style lang="stylus" scoped>
-.container
+.deck
+  focused-box-shadow = 0px 1px 6px rgba(0, 0, 0, 0.25)
+
   border 1px solid #b0b0b0
   border-radius 4px
+  color inherit
   padding 8px 16px 16px 16px
   text-align center
-  transition box-shadow 0.2s
+  text-decoration none
+  transition box-shadow 0.2s ease-out
+
   &:hover
     cursor pointer
-    box-shadow 0px 1px 6px rgba(0, 0, 0, 0.25)
+    box-shadow focused-box-shadow
+
+  &:focus
+    box-shadow focused-box-shadow
 </style>

@@ -1,16 +1,17 @@
 <template>
-  <div class="container">
+  <div class="edit">
     <div
       v-if="title"
-      class="container"
     >
-      <h1>New card for {{ title }}</h1>
+      <h1 class="edit__title">
+        New card for {{ title }}
+      </h1>
       <div>
         <MyInput
           v-model="front"
           type="text"
           name="front"
-          class="input"
+          class="edit__input"
           placeholder="Front"
           required
           :disabled="!isAdmin"
@@ -21,7 +22,7 @@
           v-model="back"
           type="text"
           name="back"
-          class="input"
+          class="edit__input"
           placeholder="Back"
           :disabled="!isAdmin"
           rows="8"
@@ -95,17 +96,20 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
+.edit
   display flex
   flex-direction column
   align-items center
-  padding 16px
   text-align center
 
-.input
+.edit__title
+  margin 16px 0
+
+.edit__input
   background none
   border 0
   border-bottom 2px solid #b0b0b0
-  margin 16px
   font-size 1.25rem
+  margin-bottom 8px
+  width 100%
 </style>

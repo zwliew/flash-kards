@@ -1,28 +1,40 @@
 <template>
-  <div class="container">
-    <header class="header">
-      <h1 class="title">
+  <div class="study">
+    <header class="study__header">
+      <h1 class="study__title">
         Study
       </h1>
     </header>
     <div v-if="deck">
       <Card :card="deck.cards[index]" />
-      <div class="actions">
-        <i
-          class="material-icons action"
-          title="Previous"
+      <div class="study__actions">
+        <button
+          class="study__action"
           @click="prev"
-        >arrow_back</i>
-        <i
-          class="material-icons action"
-          title="Shuffle"
+        >
+          <i
+            class="material-icons"
+            title="Previous"
+          >arrow_back</i>
+        </button>
+        <button
+          class="study__action"
           @click="shuffle"
-        >shuffle</i>
-        <i
-          class="material-icons action"
-          title="Next"
+        >
+          <i
+            class="material-icons"
+            title="Shuffle"
+          >shuffle</i>
+        </button>
+        <button
+          class="study__action"
           @click="next"
-        >arrow_forward</i>
+        >
+          <i
+            class="material-icons"
+            title="Next"
+          >arrow_forward</i>
+        </button>
       </div>
     </div>
     <div v-else>
@@ -82,33 +94,41 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
+.study
   display flex
   flex-direction column
   align-items center
-  max-width 80%
-  max-height 80%
   margin auto
+  padding 0 16px
 
-.header
+.study__header
   display flex
   justify-content space-evenly
   align-items center
 
-.title
+.study__title
   margin 16px 0
 
-.actions
+.study__actions
   display flex
   justify-content center
+  margin-top 8px
 
-  .action
-    padding 16px
-    margin 16px 8px
-    border-radius 50%
-    border 1px solid #b0b0b0
-    transition: background 0.2s
-    &:hover
-      cursor pointer
-      background: #eee
+.study__action
+  focused-color = #eee
+
+  background none
+  border-radius 50%
+  border 1px solid #b0b0b0
+  height 42px
+  margin 0 4px
+  padding 8px
+  transition: background 0.2s ease-out
+
+  &:hover
+    cursor pointer
+    background focused-color
+
+  &:focus
+    background focused-color
 </style>

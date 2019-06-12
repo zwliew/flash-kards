@@ -1,18 +1,17 @@
 <template>
-  <div class="container">
+  <div class="card">
     <h1
       v-if="!flipped"
-      class="front-text"
     >
       {{ visibleText }}
     </h1>
-    <p 
+    <p
       v-if="flipped" 
-      class="back-text"
     >
       {{ visibleText }}
     </p>
     <Button
+      class="card__action"
       @click="flipped = !flipped"
     >
       Flip
@@ -50,17 +49,14 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
-  margin auto
-  min-width 240px
-  min-height 120px
+.card
+  align-items center
   border 1px solid #b0b0b0
   border-radius 4px
-  padding 16px
+  display flex
+  flex-direction column
+  padding 16px 8px 8px 8px
 
-.front-text
-  text-align center
-
-.back-text
-  font-size: 1.25rem
+.card__action
+  margin-top 8px
 </style>

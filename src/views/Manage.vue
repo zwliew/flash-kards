@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <h1 class="title">
+  <div class="manage">
+    <h1 class="manage__title">
       Manage
     </h1>
     <div v-if="deck !== undefined">
@@ -9,7 +9,7 @@
         <p><strong>Tags</strong>: {{ tagline }}</p>
         <p><strong>Number of cards</strong>: {{ lengthText }}</p>
       </div>
-      <div class="action-container">
+      <div class="manage__actions">
         <Button @click="study">
           Study
         </Button>
@@ -59,15 +59,16 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
+.manage
   display flex
   flex-direction column
   align-items center
 
-.title
+.manage__title
   margin 16px 0
 
-.action-container
+.manage__actions
   display flex
   justify-content space-evenly
+  margin-top 8px
 </style>

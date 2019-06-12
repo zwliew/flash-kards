@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <h1 class="title">
+  <div class="decks">
+    <h1 class="decks__title">
       Decks
     </h1>
     <div
       v-if="decks.length > 0"
-      class="deck-list"
+      class="decks__list"
     >
       <Deck
         v-for="deck in decks"
@@ -35,25 +35,25 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
+.decks
   align-items center
   display flex
   flex-direction column
 
-.title
+.decks__title
   margin 16px 0
 
-.deck-list
+.decks__list
   display grid
   grid-column-gap 16px
   grid-row-gap 16px
   padding 0 8px
 
 @media (min-width: 600px)
-  .deck-list
+  .decks__list
     grid-template-columns repeat(2, 1fr)
 
 @media (min-width: 900px)
-  .deck-list
+  .decks__list
     grid-template-columns repeat(3, 1fr)
 </style>

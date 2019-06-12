@@ -1,20 +1,20 @@
 <template>
-  <div class="container">
-    <h1 class="title">
+  <div class="account">
+    <h1 class="account__title">
       Account
     </h1>
     <div 
       v-if="user.uid" 
     >
       <img
-        class="photo"
+        class="account__photo"
         :src="user.photo"
       >
       <p>
         {{ user.name }}
         <i 
           v-if="$store.getters.isAdmin" 
-          class="material-icons badge"
+          class="material-icons account__badge"
         >star</i>
       </p>
       <Button @click="logout">
@@ -70,17 +70,18 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.container
+.account
   text-align center
 
-.title
+.account__title
   margin 16px 0
 
-.photo
+.account__photo
   border-radius 50%
   max-width 128px
   max-height 128px
 
-.badge
+.account__badge
   color #fdd835
+  vertical-align text-bottom
 </style>
