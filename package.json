@@ -19,7 +19,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
-    "firebase": "6.1.1",
+    "firebase": "6.2.0",
     "firebaseui": "4.0.0",
     "register-service-worker": "1.6.2",
     "vue": "2.6.10",
