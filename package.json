@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/zwliew/flash-cards.git"
+    "url": "git+ssh://git@github.com/zwliew/flash-kards.git"
   },
   "author": "Zhao Wei Liew <zhaoweiliew@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zwliew/flash-cards/issues"
+    "url": "https://github.com/zwliew/flash-kards/issues"
   },
-  "homepage": "https://github.com/zwliew/flash-cards#readme",
+  "homepage": "https://github.com/zwliew/flash-kards#readme",
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
