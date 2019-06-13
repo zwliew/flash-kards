@@ -1,30 +1,15 @@
 <template>
   <div class="account">
-    <h1 class="account__title">
-      Account
-    </h1>
-    <div 
-      v-if="user.uid" 
-    >
-      <img
-        class="account__photo"
-        :src="user.photo"
-      >
+    <h1 class="account__title">Account</h1>
+    <div v-if="user.uid">
+      <img class="account__photo" :src="user.photo">
       <p>
         {{ user.name }}
-        <i 
-          v-if="$store.getters.isAdmin" 
-          class="material-icons account__badge"
-        >star</i>
+        <i v-if="$store.getters.isAdmin" class="material-icons account__badge">star</i>
       </p>
-      <Button @click="logout">
-        Log out
-      </Button>
+      <Button @click="logout">Log out</Button>
     </div>
-    <div
-      v-show="!user.uid"
-      id="firebaseui-auth-container"
-    />
+    <div v-show="!user.uid" id="firebaseui-auth-container"/>
   </div>
 </template>
 
@@ -41,7 +26,7 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
-    }
+    },
   },
   mounted() {
     let ui = firebaseui.auth.AuthUI.getInstance();
@@ -55,9 +40,7 @@ export default {
           return false;
         },
       },
-      signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      ],
+      signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
     });
   },
   methods: {
@@ -69,19 +52,23 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.account
-  text-align center
+<style lang="scss" scoped>
+.account {
+  text-align: center;
+}
 
-.account__title
-  margin 16px 0
+.account__title {
+  margin: 16px 0;
+}
 
-.account__photo
-  border-radius 50%
-  max-width 128px
-  max-height 128px
+.account__photo {
+  border-radius: 50%;
+  max-width: 128px;
+  max-height: 128px;
+}
 
-.account__badge
-  color #fdd835
-  vertical-align text-bottom
+.account__badge {
+  color: #fdd835;
+  vertical-align: text-bottom;
+}
 </style>

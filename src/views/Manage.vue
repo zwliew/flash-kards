@@ -1,24 +1,24 @@
 <template>
   <div class="manage">
-    <h1 class="manage__title">
-      Manage
-    </h1>
+    <h1 class="manage__title">Manage</h1>
     <div v-if="deck !== undefined">
       <div>
-        <p><strong>Title</strong>: {{ deck.title }}</p>
-        <p><strong>Tags</strong>: {{ tagline }}</p>
-        <p><strong>Number of cards</strong>: {{ lengthText }}</p>
+        <p>
+          <strong>Title</strong>
+          : {{ deck.title }}
+        </p>
+        <p>
+          <strong>Tags</strong>
+          : {{ tagline }}
+        </p>
+        <p>
+          <strong>Number of cards</strong>
+          : {{ lengthText }}
+        </p>
       </div>
       <div class="manage__actions">
-        <Button @click="study">
-          Study
-        </Button>
-        <Button
-          v-if="$store.getters.isAdmin"
-          @click="edit"
-        >
-          Edit
-        </Button>
+        <Button @click="study">Study</Button>
+        <Button v-if="$store.getters.isAdmin" @click="edit">Edit</Button>
       </div>
     </div>
   </div>
@@ -29,19 +29,25 @@ import Button from '../components/Button.vue';
 
 export default {
   components: {
-    Button
+    Button,
   },
   computed: {
     deck() {
       return this.$store.getters.getDeckById(this.id);
     },
     tagline() {
-      if (this.deck === undefined) return '';
+      if (this.deck === undefined) {
+        return '';
+      }
       return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
     },
     lengthText() {
-      if (this.deck === undefined) return '';
-      return `${this.deck.cards.length} card${this.deck.cards.length !== 1 ? 's' : ''}`;
+      if (this.deck === undefined) {
+        return '';
+      }
+      return `${this.deck.cards.length} card${
+        this.deck.cards.length !== 1 ? 's' : ''
+      }`;
     },
     id() {
       return this.$route.params.id;
@@ -58,17 +64,20 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.manage
-  display flex
-  flex-direction column
-  align-items center
+<style lang="scss" scoped>
+.manage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.manage__title
-  margin 16px 0
+.manage__title {
+  margin: 16px 0;
+}
 
-.manage__actions
-  display flex
-  justify-content space-evenly
-  margin-top 8px
+.manage__actions {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 8px;
+}
 </style>

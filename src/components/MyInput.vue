@@ -42,10 +42,11 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.input
-  background none
-  border 0
-  border-bottom 2px solid #b0b0b0
-  font-size 1.25rem
+<style lang="scss" scoped>
+.input {
+  background: none;
+  border: 0;
+  border-bottom: 2px solid #b0b0b0;
+  font-size: 1.25rem;
+}
 </style>

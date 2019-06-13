@@ -1,5 +1,3 @@
-.project
 node_modules
-dist
+/dist
 .firebase
-firebase-debug.log

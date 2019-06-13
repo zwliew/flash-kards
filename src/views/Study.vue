@@ -1,45 +1,23 @@
 <template>
   <div class="study">
     <header class="study__header">
-      <h1 class="study__title">
-        Study
-      </h1>
+      <h1 class="study__title">Study</h1>
     </header>
     <div v-if="deck">
-      <Card :card="deck.cards[index]" />
+      <Card :card="deck.cards[index]"/>
       <div class="study__actions">
-        <button
-          class="study__action"
-          @click="prev"
-        >
-          <i
-            class="material-icons"
-            title="Previous"
-          >arrow_back</i>
+        <button class="study__action" @click="prev">
+          <i class="material-icons" title="Previous">arrow_back</i>
         </button>
-        <button
-          class="study__action"
-          @click="shuffle"
-        >
-          <i
-            class="material-icons"
-            title="Shuffle"
-          >shuffle</i>
+        <button class="study__action" @click="shuffle">
+          <i class="material-icons" title="Shuffle">shuffle</i>
         </button>
-        <button
-          class="study__action"
-          @click="next"
-        >
-          <i
-            class="material-icons"
-            title="Next"
-          >arrow_forward</i>
+        <button class="study__action" @click="next">
+          <i class="material-icons" title="Next">arrow_forward</i>
         </button>
       </div>
     </div>
-    <div v-else>
-      Loading…
-    </div>
+    <div v-else>Loading…</div>
   </div>
 </template>
 
@@ -93,42 +71,49 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-.study
-  display flex
-  flex-direction column
-  align-items center
-  margin auto
-  padding 0 16px
+<style lang="scss" scoped>
+.study {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  padding: 0 16px;
+}
 
-.study__header
-  display flex
-  justify-content space-evenly
-  align-items center
+.study__header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
-.study__title
-  margin 16px 0
+.study__title {
+  margin: 16px 0;
+}
 
-.study__actions
-  display flex
-  justify-content center
-  margin-top 8px
+.study__actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
 
-.study__action
-  focused-color = #eee
+.study__action {
+  $focused-color: #eee;
 
-  background none
-  border-radius 50%
-  border 1px solid #b0b0b0
-  height 42px
-  margin 0 4px
-  padding 8px
-  transition: background 0.2s ease-out
+  background: none;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  height: 42px;
+  margin: 0 4px;
+  padding: 8px;
+  transition: background 0.2s ease-out;
 
-  &:hover
-    cursor pointer
-    background focused-color
+  &:hover {
+    cursor: pointer;
+    background: $focused-color;
+  }
 
-  &:focus
-    background focused-color
+  &:focus {
+    background: $focused-color;
+  }
+}
 </style>
