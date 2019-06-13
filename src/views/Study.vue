@@ -3,8 +3,8 @@
     <header class="study__header">
       <h1 class="study__title">Study</h1>
     </header>
-    <div v-if="deck">
-      <Card :card="deck.cards[index]"/>
+    <div v-if="cards">
+      <Card :card="cards[indices[curIndex]]"/>
       <div class="study__actions">
         <button class="study__action" @click="prev">
           <i class="material-icons" title="Previous">arrow_back</i>
@@ -22,25 +22,28 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import Card from '@/components/Card.vue';
+import { Card as CardType } from '@/store';
 
 @Component({
   components: { Card },
 })
 export default class Study extends Vue {
-  private index = 0;
+  private curIndex = 0;
+  private indices: number[] = [];
 
-  get deck() {
-    return this.$store.getters.getDeckById(this.$route.params.id);
+  private created() {
+    this.onCardsChanged(this.cards);
   }
 
-  get nextIndex() {
-    return (this.index + 1) % this.deck.cards.length;
+  get cards() {
+    return this.$store.getters.getDeckById(this.$route.params.id).cards;
   }
 
-  get prevIndex() {
-    return (this.index - 1 + this.deck.cards.length) % this.deck.cards.length;
+  @Watch('cards')
+  private onCardsChanged(newCards: CardType[]) {
+    this.indices = newCards.map((_, idx) => idx < this.indices.length ? this.indices[idx] : idx);
   }
 
   private mounted() {
@@ -60,15 +63,22 @@ export default class Study extends Vue {
   }
 
   private shuffle() {
-    this.index = Math.floor(Math.random() * this.deck.cards.length);
+    const newIndices = [...this.indices];
+    for (let i = 0; i < newIndices.length; i++) {
+      const j = Math.floor(Math.random() * (newIndices.length - i)) + i;
+      const tmp = newIndices[j];
+      newIndices[j] = newIndices[i];
+      newIndices[i] = tmp;
+    }
+    this.indices = newIndices;
   }
 
   private next() {
-    this.index = this.nextIndex;
+    this.curIndex = (this.curIndex + 1) % this.indices.length;
   }
 
   private prev() {
-    this.index = this.prevIndex;
+    this.curIndex = (this.curIndex - 1 + this.indices.length) % this.indices.length;
   }
 }
 </script>
