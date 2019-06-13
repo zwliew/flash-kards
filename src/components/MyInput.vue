@@ -11,35 +11,18 @@
   >
 </template>
 
-<script>
-export default {
-  props: {
-    type: {
-      type: String,
-      default: '',
-    },
-    name: {
-      type: String,
-      default: '',
-    },
-    placeholder: {
-      type: String,
-      default: '',
-    },
-    required: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    value: {
-      type: String,
-      default: '',
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class MyInput extends Vue {
+  @Prop({type: String, default: ''}) public readonly type!: string;
+  @Prop({type: String, default: ''}) public readonly name!: string;
+  @Prop({type: String, default: ''}) public readonly placeholder!: string;
+  @Prop({type: String, default: ''}) public readonly value!: string;
+  @Prop({type: Boolean, default: false}) public readonly required!: boolean;
+  @Prop({type: Boolean, default: false}) public readonly disabled!: boolean;
+}
 </script>
 
 <style lang="scss" scoped>

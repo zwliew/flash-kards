@@ -24,44 +24,50 @@
   </div>
 </template>
 
-<script>
-import Button from '../components/Button.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Button from '@/components/Button.vue';
 
-export default {
+@Component({
   components: {
     Button,
   },
-  computed: {
-    deck() {
-      return this.$store.getters.getDeckById(this.id);
-    },
-    tagline() {
-      if (this.deck === undefined) {
-        return '';
-      }
-      return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
-    },
-    lengthText() {
-      if (this.deck === undefined) {
-        return '';
-      }
-      return `${this.deck.cards.length} card${
-        this.deck.cards.length !== 1 ? 's' : ''
-      }`;
-    },
-    id() {
-      return this.$route.params.id;
-    },
-  },
-  methods: {
-    study() {
-      this.$router.push(`/study/${this.id}`);
-    },
-    edit() {
-      this.$router.push(`/edit/${this.id}`);
-    },
-  },
-};
+})
+export default class Manage extends Vue {
+  get deck() {
+    return this.$store.getters.getDeckById(this.id);
+  }
+
+  get tagline() {
+    if (this.deck === undefined) {
+      return '';
+    }
+    return this.deck.tags.reduce(
+      (acc: string, cur: string) => acc + `, ${cur}`,
+    );
+  }
+
+  get lengthText() {
+    if (this.deck === undefined) {
+      return '';
+    }
+    return `${this.deck.cards.length} card${
+      this.deck.cards.length !== 1 ? 's' : ''
+    }`;
+  }
+
+  get id() {
+    return this.$route.params.id;
+  }
+
+  private study() {
+    this.$router.push(`/study/${this.id}`);
+  }
+
+  private edit() {
+    this.$router.push(`/edit/${this.id}`);
+  }
+}
 </script>
 
 <style lang="scss" scoped>

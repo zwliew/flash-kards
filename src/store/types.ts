@@ -12,7 +12,7 @@ export interface Card {
 export interface Deck {
   id: string;
   title: string;
-  tagline: string;
+  tags: string[];
   cards: Card[];
 }
 
