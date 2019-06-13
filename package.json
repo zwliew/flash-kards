@@ -37,7 +37,7 @@
     "lint-staged": "8.2.0",
     "sass": "1.21.0",
     "sass-loader": "7.1.0",
-    "typescript": "3.5.1",
+    "typescript": "3.5.2",
     "vue-template-compiler": "2.6.10"
   },
   "license": "MIT",
