@@ -13,22 +13,24 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseui from 'firebaseui';
-import Button from '../components/Button.vue';
+import Button from '@/components/Button.vue';
 
-export default {
+@Component({
   components: {
     Button,
   },
-  computed: {
-    user() {
-      return this.$store.state.user;
-    },
-  },
-  mounted() {
+})
+export default class Account extends Vue {
+  get user() {
+    return this.$store.state.user;
+  }
+
+  private mounted() {
     let ui = firebaseui.auth.AuthUI.getInstance();
     if (!ui) {
       ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -42,14 +44,13 @@ export default {
       },
       signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
     });
-  },
-  methods: {
-    logout() {
-      this.$router.push('/');
-      firebase.auth().signOut();
-    },
-  },
-};
+  }
+
+  private logout() {
+    this.$router.push('/');
+    firebase.auth().signOut();
+  }
+}
 </script>
 
 <style lang="scss" scoped>

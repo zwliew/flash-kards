@@ -31,59 +31,63 @@
   </div>
 </template>
 
-<script>
-import Button from '../components/Button.vue';
-import MyInput from '../components/MyInput.vue';
+<script lang="ts">
+import { Component, Watch, Vue } from 'vue-property-decorator';
 import { mapGetters } from 'vuex';
+import Button from '@/components/Button.vue';
+import MyInput from '@/components/MyInput.vue';
+import { Card as CardType } from '@/store';
 
-export default {
+@Component({
   components: {
     Button,
     MyInput,
   },
-  data: () => ({
-    front: '',
-    back: '',
-  }),
   computed: {
-    deckId() {
-      return this.$route.params.id;
-    },
-    title() {
-      return this.$store.getters.getDeckTitleById(this.deckId);
-    },
-    cardAdded() {
-      const deck = this.$store.getters.getDeckById(this.deckId);
-      if (!deck) {
-        return false;
-      }
-      return deck.cards.find(
-        (card) => this.front === card.front && this.back === card.back,
-      );
-    },
     ...mapGetters(['isAdmin']),
   },
-  watch: {
-    cardAdded(now, old) {
-      if (now !== old && now) {
-        this.$router.push(`/manage/${this.deckId}`);
-      }
-    },
-  },
-  methods: {
-    submit() {
-      if (this.front.length === 0 || this.back.length === 0) {
-        alert('Please fill in both the front and back text.');
-      } else {
-        this.$store.dispatch('ADD_CARD', {
-          deckId: this.deckId,
-          front: this.front,
-          back: this.back,
-        });
-      }
-    },
-  },
-};
+})
+export default class Edit extends Vue {
+  private front = '';
+  private back = '';
+
+  get deckId() {
+    return this.$route.params.id;
+  }
+
+  get title() {
+    return this.$store.getters.getDeckTitleById(this.deckId);
+  }
+
+  get cardAdded() {
+    const deck = this.$store.getters.getDeckById(this.deckId);
+    if (!deck) {
+      return false;
+    }
+    return deck.cards.find(
+      (card: CardType) => this.front === card.front && this.back === card.back,
+    );
+  }
+
+  @Watch('cardAdded')
+  private onCardAdded(now: CardType, old: CardType) {
+    if (now !== old && now) {
+      this.$router.push(`/manage/${this.deckId}`);
+    }
+  }
+
+  private submit() {
+    if (this.front.length === 0 || this.back.length === 0) {
+      alert('Please fill in both the front and back text.');
+    } else {
+      this.$store.dispatch('ADD_CARD', {
+        deckId: this.deckId,
+        front: this.front,
+        back: this.back,
+      });
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

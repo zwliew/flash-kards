@@ -6,33 +6,30 @@
   </div>
 </template>
 
-<script>
-import Button from '../components/Button.vue';
+<script lang="ts">
+import { Component, Prop, Watch, Vue } from 'vue-property-decorator';
+import Button from '@/components/Button.vue';
+import { Card as CardType } from '@/store';
 
-export default {
+@Component({
   components: {
     Button,
   },
-  props: {
-    card: {
-      type: Object,
-      default: null,
-    },
-  },
-  data: () => ({
-    flipped: false,
-  }),
-  computed: {
-    visibleText() {
-      return this.flipped ? this.card.back : this.card.front;
-    },
-  },
-  watch: {
-    card() {
-      this.flipped = false;
-    },
-  },
-};
+})
+export default class Card extends Vue {
+  @Prop({ type: Object, default: null }) public readonly card!: CardType;
+
+  private flipped = false;
+
+  @Watch('card')
+  private onCardChanged() {
+    this.flipped = false;
+  }
+
+  get visibleText() {
+    return this.flipped ? this.card.back : this.card.front;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

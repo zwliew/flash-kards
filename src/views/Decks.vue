@@ -8,19 +8,20 @@
   </div>
 </template>
 
-<script>
-import Deck from '../components/Deck.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Deck from '@/components/Deck.vue';
 
-export default {
+@Component({
   components: {
     Deck,
   },
-  computed: {
-    decks() {
-      return this.$store.state.decks;
-    },
-  },
-};
+})
+export default class Decks extends Vue {
+  get decks() {
+    return this.$store.state.decks;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -6,25 +6,24 @@
   </router-link>
 </template>
 
-<script>
-export default {
-  props: {
-    deck: {
-      type: Object,
-      default: null,
-    },
-  },
-  computed: {
-    tagline() {
-      return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
-    },
-    lengthText() {
-      return `${this.deck.cards.length} card${
-        this.deck.cards.length !== 1 ? 's' : ''
-      }`;
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Deck as DeckType } from '@/store';
+
+@Component
+export default class Deck extends Vue {
+  @Prop({ type: Object, default: null }) public readonly deck!: DeckType;
+
+  get tagline() {
+    return this.deck.tags.reduce((acc, cur) => acc + `, ${cur}`);
+  }
+
+  get lengthText() {
+    return `${this.deck.cards.length} card${
+      this.deck.cards.length !== 1 ? 's' : ''
+    }`;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

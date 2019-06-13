@@ -4,15 +4,13 @@
   </button>
 </template>
 
-<script>
-export default {
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-  },
-};
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component
+export default class Button extends Vue {
+  @Prop({type: Boolean, default: false}) public readonly disabled!: boolean;
+}
 </script>
 
 <style lang="scss" scoped>

@@ -21,28 +21,29 @@
   </div>
 </template>
 
-<script>
-import Card from '../components/Card.vue';
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import Card from '@/components/Card.vue';
 
-export default {
-  components: {
-    Card,
-  },
-  data: () => ({
-    index: 0,
-  }),
-  computed: {
-    deck() {
-      return this.$store.getters.getDeckById(this.$route.params.id);
-    },
-    nextIndex() {
-      return (this.index + 1) % this.deck.cards.length;
-    },
-    prevIndex() {
-      return (this.index - 1 + this.deck.cards.length) % this.deck.cards.length;
-    },
-  },
-  mounted() {
+@Component({
+  components: { Card },
+})
+export default class Study extends Vue {
+  private index = 0;
+
+  get deck() {
+    return this.$store.getters.getDeckById(this.$route.params.id);
+  }
+
+  get nextIndex() {
+    return (this.index + 1) % this.deck.cards.length;
+  }
+
+  get prevIndex() {
+    return (this.index - 1 + this.deck.cards.length) % this.deck.cards.length;
+  }
+
+  private mounted() {
     window.addEventListener('keydown', (event) => {
       switch (event.key) {
         case 'ArrowLeft':
@@ -56,19 +57,20 @@ export default {
           break;
       }
     });
-  },
-  methods: {
-    shuffle() {
-      this.index = Math.floor(Math.random() * this.deck.cards.length);
-    },
-    next() {
-      this.index = this.nextIndex;
-    },
-    prev() {
-      this.index = this.prevIndex;
-    },
-  },
-};
+  }
+
+  private shuffle() {
+    this.index = Math.floor(Math.random() * this.deck.cards.length);
+  }
+
+  private next() {
+    this.index = this.nextIndex;
+  }
+
+  private prev() {
+    this.index = this.prevIndex;
+  }
+}
 </script>
 
 <style lang="scss" scoped>
