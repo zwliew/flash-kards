@@ -23,13 +23,15 @@ new Vue({
     });
     firebase.firestore().settings({});
     firebase.auth().onAuthStateChanged((user) => {
-      const payload: User = { name: null, photo: null, uid: null };
-      if (user) {
-        payload.name = user.displayName;
-        payload.photo = user.photoURL;
-        payload.uid = user.uid;
+      if (user === null) {
+        this.$store.dispatch('LOG_OUT');
+      } else {
+        this.$store.dispatch('LOG_IN', {
+          id: user.uid,
+          name: user.displayName,
+          photoUrl: user.photoURL,
+        });
       }
-      this.$store.commit('SET_USER', payload);
     });
     this.$store.dispatch('SET_DECKS_REF');
   },

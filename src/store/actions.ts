@@ -23,7 +23,34 @@ export default {
             back,
           },
         ],
-      })
-      .catch(() => undefined);
+      });
+  },
+  LOG_OUT({ commit }: { commit: (type: string) => void }) {
+    commit('RESET_USER');
+  },
+  LOG_IN(
+    { commit }: { commit: (type: string, payload: any) => void },
+    { id, name, photoUrl }: { id: string; name: string; photoUrl: string },
+  ) {
+    commit('SET_USER', {
+      id,
+      name,
+      photoUrl,
+    });
+
+    firebase
+      .firestore()
+      .collection('users')
+      .doc(id)
+      .set(
+        {
+          id,
+          name,
+          photoUrl,
+        },
+        {
+          merge: true,
+        },
+      );
   },
 };

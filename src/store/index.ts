@@ -12,11 +12,7 @@ Vue.use(Vuex);
 export default new Vuex.Store<State>({
   state: {
     decks: [],
-    user: {
-      name: null,
-      uid: null,
-      photo: null,
-    },
+    user: null,
   },
   mutations: {
     ...mutations,

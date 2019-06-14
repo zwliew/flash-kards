@@ -1,7 +1,7 @@
 export interface User {
-  name: string | null;
-  uid: string | null;
-  photo: string | null;
+  name: string;
+  id: string;
+  photoUrl: string;
 }
 
 export interface Card {
@@ -17,7 +17,7 @@ export interface Deck {
 }
 
 export interface State {
-  user: User;
+  user: User | null;
   decks: Deck[];
 }
 

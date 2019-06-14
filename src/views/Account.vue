@@ -1,15 +1,15 @@
 <template>
   <div class="account">
     <h1 class="account__title">Account</h1>
-    <div v-if="user.uid">
-      <img class="account__photo" :src="user.photo">
+    <div v-if="user !== null">
+      <img class="account__photo" :src="user.photoUrl">
       <p>
         {{ user.name }}
         <i v-if="$store.getters.isAdmin" class="material-icons account__badge">star</i>
       </p>
       <Button @click="logout">Log out</Button>
     </div>
-    <div v-show="!user.uid" id="firebaseui-auth-container"/>
+    <div v-else id="firebaseui-auth-container"/>
   </div>
 </template>
 
@@ -35,7 +35,6 @@ export default class Account extends Vue {
     if (!ui) {
       ui = new firebaseui.auth.AuthUI(firebase.auth());
     }
-    const component = this;
     ui.start('#firebaseui-auth-container', {
       callbacks: {
         signInSuccessWithAuthResult(authResult) {

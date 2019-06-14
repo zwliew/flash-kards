@@ -11,5 +11,5 @@ export default {
     return deck.title;
   },
   isAdmin: (state: State, _: Getters) =>
-    state.user.uid === 'GFPwcwf8RJgq5glwtddLCW2bBNC3',
+    state.user !== null && state.user.id === 'GFPwcwf8RJgq5glwtddLCW2bBNC3',
 };
