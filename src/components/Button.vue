@@ -9,12 +9,13 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class Button extends Vue {
-  @Prop({type: Boolean, default: false}) public readonly disabled!: boolean;
+  @Prop({ type: Boolean, default: false }) public readonly disabled!: boolean;
 }
 </script>
 
 <style lang="scss" scoped>
 .button {
+  $unfocused-color: white;
   $focused-color: #eee;
 
   border: none;
@@ -24,16 +25,22 @@ export default class Button extends Vue {
   color: $secondary-color;
   text-transform: uppercase;
   font-weight: bold;
-  transition: background 0.2s ease-out;
-  background: white;
+  transition: background-color 0.2s ease-out;
+  background-color: $unfocused-color;
 
   &:hover {
     cursor: pointer;
-    background: $focused-color;
+    background-color: $focused-color;
   }
 
   &:focus {
-    background: $focused-color;
+    background-color: $focused-color;
+  }
+
+  &[disabled] {
+    cursor: inherit;
+    background-color: $unfocused-color;
+    color: grey;
   }
 }
 </style>

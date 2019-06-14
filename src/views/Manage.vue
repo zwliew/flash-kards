@@ -18,7 +18,7 @@
       </div>
       <div class="manage__actions">
         <Button @click="study">Study</Button>
-        <Button v-if="$store.getters.isAdmin" @click="edit">Edit</Button>
+        <Button v-if="isAuthorized" @click="edit">Edit</Button>
       </div>
     </div>
   </div>
@@ -34,6 +34,10 @@ import Button from '@/components/Button.vue';
   },
 })
 export default class Manage extends Vue {
+  get isAuthorized() {
+    return this.$store.state.user !== null && this.$store.state.user.isAdmin;
+  }
+
   get deck() {
     return this.$store.getters.getDeckById(this.id);
   }

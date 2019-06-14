@@ -10,7 +10,7 @@
           class="edit__input"
           placeholder="Front"
           required
-          :disabled="!isAdmin"
+          :disabled="!isAuthorized"
         />
       </div>
       <div>
@@ -20,12 +20,12 @@
           name="back"
           class="edit__input"
           placeholder="Back"
-          :disabled="!isAdmin"
+          :disabled="!isAuthorized"
           rows="8"
           required
         />
       </div>
-      <Button :disabled="!isAdmin" @click="submit">Submit</Button>
+      <Button :disabled="!isAuthorized" @click="submit">Submit</Button>
     </div>
     <div v-else>Loading…</div>
   </div>
@@ -43,13 +43,14 @@ import { Card as CardType } from '@/store';
     Button,
     MyInput,
   },
-  computed: {
-    ...mapGetters(['isAdmin']),
-  },
 })
 export default class Edit extends Vue {
   private front = '';
   private back = '';
+
+  get isAuthorized() {
+    return this.$store.state.user !== null && this.$store.state.user.isAdmin;
+  }
 
   get deckId() {
     return this.$route.params.id;
@@ -77,6 +78,11 @@ export default class Edit extends Vue {
   }
 
   private submit() {
+    if (!this.isAuthorized) {
+      alert('You are not authorized to edit this deck.');
+      return;
+    }
+
     if (this.front.length === 0 || this.back.length === 0) {
       alert('Please fill in both the front and back text.');
     } else {
