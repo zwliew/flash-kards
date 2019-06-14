@@ -6,17 +6,17 @@
     <div v-if="cards">
       <Card :card="cards[indices[curIndex]]"/>
       <div class="study-deck__actions">
-        <button class="study-deck__action" @click="prev">
-          <i class="material-icons" title="Previous">arrow_back</i>
+        <button class="study-deck__action" @click="prev" title="Previous">
+          <i class="material-icons">arrow_back</i>
         </button>
-        <button class="study-deck__action" @click="shuffle">
-          <i class="material-icons" title="Shuffle">shuffle</i>
+        <button class="study-deck__action" @click="shuffle" title="Shuffle">
+          <i class="material-icons">shuffle</i>
         </button>
-        <button class="study-deck__action" @click="next">
-          <i class="material-icons" title="Next">arrow_forward</i>
+        <button class="study-deck__action" @click="next" title="Next">
+          <i class="material-icons">arrow_forward</i>
         </button>
-        <button class="study-deck__action" @click="editCurCard">
-          <i class="material-icons" title="Edit">edit</i>
+        <button class="study-deck__action" @click="editCurCard" title="Edit">
+          <i class="material-icons">edit</i>
         </button>
       </div>
     </div>
