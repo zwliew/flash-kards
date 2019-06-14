@@ -1,13 +1,13 @@
 <template>
-  <div class="new-card">
+  <div class="edit-card">
     <div v-if="deckTitle">
-      <h1 class="new-card__title">New card for {{ deckTitle }}</h1>
+      <h1 class="edit-card__title">Editing a card in {{ deckTitle }}</h1>
       <div>
         <MyInput
           v-model="front"
           type="text"
           name="front"
-          class="new-card__input"
+          class="edit-card__input"
           placeholder="Front"
           required
           :disabled="!isAuthorized"
@@ -18,14 +18,14 @@
           v-model="back"
           type="text"
           name="back"
-          class="new-card__input"
+          class="edit-card__input"
           placeholder="Back"
           :disabled="!isAuthorized"
           rows="8"
           required
         />
       </div>
-      <Button :disabled="!isAuthorized" @click="submit">Submit</Button>
+      <Button :disabled="!isAuthorized" @click="saveCard">Save</Button>
     </div>
     <div v-else>Loading…</div>
   </div>
@@ -45,8 +45,16 @@ import { Card as CardType } from '@/store';
   },
 })
 export default class NewCard extends Vue {
-  private front = '';
-  private back = '';
+  private front!: string;
+  private back!: string;
+
+  private created() {
+    const card = this.$store.getters.getDeckById(this.deckId).cards[
+      this.cardIdx
+    ];
+    this.front = card.front;
+    this.back = card.back;
+  }
 
   get isAuthorized() {
     return this.$store.state.user !== null && this.$store.state.user.isAdmin;
@@ -54,6 +62,10 @@ export default class NewCard extends Vue {
 
   get deckId() {
     return this.$route.params.deckId;
+  }
+
+  get cardIdx() {
+    return this.$route.params.cardIdx;
   }
 
   get deckTitle() {
@@ -82,7 +94,7 @@ export default class NewCard extends Vue {
     }
   }
 
-  private submit() {
+  private saveCard() {
     if (!this.isAuthorized) {
       alert('You are not authorized to add a new card to this deck.');
       return;
@@ -91,8 +103,9 @@ export default class NewCard extends Vue {
     if (this.front.length === 0 || this.back.length === 0) {
       alert('Please fill in both the front and back text.');
     } else {
-      this.$store.dispatch('ADD_CARD', {
+      this.$store.dispatch('UPDATE_CARD', {
         deckId: this.deckId,
+        cardIdx: this.cardIdx,
         front: this.front,
         back: this.back,
       });
@@ -102,18 +115,18 @@ export default class NewCard extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.new-card {
+.edit-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 }
 
-.new-card__title {
+.edit-card__title {
   margin: 16px 0;
 }
 
-.new-card__input {
+.edit-card__input {
   background: none;
   border: 0;
   border-bottom: 2px solid #b0b0b0;

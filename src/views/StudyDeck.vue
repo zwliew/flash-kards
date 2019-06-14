@@ -15,6 +15,9 @@
         <button class="study-deck__action" @click="next">
           <i class="material-icons" title="Next">arrow_forward</i>
         </button>
+        <button class="study-deck__action" @click="editCurCard">
+          <i class="material-icons" title="Edit">edit</i>
+        </button>
       </div>
     </div>
     <div v-else>Loading…</div>
@@ -86,6 +89,16 @@ export default class StudyDeck extends Vue {
   private prev() {
     this.curIndex =
       (this.curIndex - 1 + this.indices.length) % this.indices.length;
+  }
+
+  private editCurCard() {
+    this.$router.push({
+      name: 'editCard',
+      params: {
+        deckId: this.deckId,
+        cardIdx: this.indices[this.curIndex].toString(),
+      },
+    });
   }
 }
 </script>

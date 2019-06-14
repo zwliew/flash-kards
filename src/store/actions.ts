@@ -43,4 +43,23 @@ export default {
         ],
       });
   },
+  UPDATE_CARD(
+    { getters }: { getters: Getters },
+    {
+      deckId,
+      cardIdx,
+      front,
+      back,
+    }: { deckId: string; cardIdx: number; front: string; back: string },
+  ) {
+    const cards = getters.getDeckById(deckId).cards;
+    cards[cardIdx] = { front, back };
+    firebase
+      .firestore()
+      .collection('decks')
+      .doc(deckId)
+      .update({
+        cards,
+      });
+  },
 };

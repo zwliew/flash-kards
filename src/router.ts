@@ -32,6 +32,12 @@ export default new Router({
         import(/* webpackChunkName: "newCard" */ './views/NewCard.vue'),
     },
     {
+      path: '/decks/:deckId/:cardIdx/edit',
+      name: 'editCard',
+      component: () =>
+        import(/* webpackChunkName: "editCard" */ './views/EditCard.vue'),
+    },
+    {
       path: '/account',
       name: 'account',
       component: () =>
