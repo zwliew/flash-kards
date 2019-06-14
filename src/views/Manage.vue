@@ -19,6 +19,7 @@
       <div class="manage__actions">
         <Button @click="study">Study</Button>
         <Button v-if="isAuthorized" @click="edit">Edit</Button>
+        <Button v-if="isAuthorized" @click="addNewCard">Add card</Button>
       </div>
     </div>
   </div>
@@ -70,6 +71,10 @@ export default class Manage extends Vue {
 
   private edit() {
     this.$router.push(`/edit/${this.id}`);
+  }
+
+  private addNewCard() {
+    this.$router.push(`/${this.id}/new`);
   }
 }
 </script>

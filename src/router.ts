@@ -10,27 +10,38 @@ export default new Router({
     {
       path: '/decks',
       name: 'Decks',
-      component: () => import(/* webpackChunkName: "decks" */ './views/Decks.vue'),
+      component: () =>
+        import(/* webpackChunkName: "decks" */ './views/Decks.vue'),
     },
     {
       path: '/Study/:id',
       name: 'Study',
-      component: () => import(/* webpackChunkName: "study" */ './views/Study.vue'),
+      component: () =>
+        import(/* webpackChunkName: "study" */ './views/Study.vue'),
     },
     {
       path: '/edit/:id',
       name: 'Edit',
-      component: () => import(/* webpackChunkName: "edit" */ './views/Edit.vue'),
+      component: () =>
+        import(/* webpackChunkName: "edit" */ './views/Edit.vue'),
+    },
+    {
+      path: '/:deckId/new',
+      name: 'New Card',
+      component: () =>
+        import(/* webpackChunkName: "newCard" */ './views/NewCard.vue'),
     },
     {
       path: '/manage/:id',
       name: 'Manage',
-      component: () => import(/* webpackChunkName: "manage" */ './views/Manage.vue'),
+      component: () =>
+        import(/* webpackChunkName: "manage" */ './views/Manage.vue'),
     },
     {
       path: '/account',
       name: 'Account',
-      component: () => import(/* webpackChunkName: "account" */ './views/Account.vue'),
+      component: () =>
+        import(/* webpackChunkName: "account" */ './views/Account.vue'),
     },
     {
       path: '/',
