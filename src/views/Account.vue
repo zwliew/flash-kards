@@ -46,7 +46,6 @@ export default class Account extends Vue {
   }
 
   private logout() {
-    this.$router.push('/');
     firebase.auth().signOut();
   }
 }
