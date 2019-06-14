@@ -1,8 +1,8 @@
 import { Deck, State, Getters } from './types';
 
 export default {
-  getDeckById: (state: State, _: Getters) => (id: string) =>
-    state.decks.find((deck: Deck) => deck.id === id),
+  getDeckById: ({ decks }: State, _: Getters) => (id: string) =>
+    decks.find((deck: Deck) => deck.id === id),
   getDeckTitleById: (_: State, getters: Getters) => (id: string) => {
     const deck = getters.getDeckById(id);
     if (!deck) {
@@ -10,6 +10,4 @@ export default {
     }
     return deck.title;
   },
-  isAdmin: (state: State, _: Getters) =>
-    state.user !== null && state.user.id === 'GFPwcwf8RJgq5glwtddLCW2bBNC3',
 };

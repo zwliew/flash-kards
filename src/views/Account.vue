@@ -5,11 +5,11 @@
       <img class="account__photo" :src="user.photoUrl">
       <p>
         {{ user.name }}
-        <i v-if="$store.getters.isAdmin" class="material-icons account__badge">star</i>
+        <i v-if="user.isAdmin" class="material-icons account__badge">star</i>
       </p>
       <Button @click="logout">Log out</Button>
     </div>
-    <div v-else id="firebaseui-auth-container"/>
+    <div v-show="user === null" id="firebaseui-auth-container"/>
   </div>
 </template>
 

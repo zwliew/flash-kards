@@ -1,7 +1,8 @@
 export interface User {
-  name: string;
   id: string;
+  name: string;
   photoUrl: string;
+  isAdmin: boolean;
 }
 
 export interface Card {
@@ -24,5 +25,4 @@ export interface State {
 export interface Getters {
   getDeckById: (id: string) => Deck;
   getDeckTitleById: (id: string) => string;
-  isAdmin: (state: State, _: any) => boolean;
 }

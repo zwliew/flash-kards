@@ -33,7 +33,7 @@ new Vue({
         });
       }
     });
-    this.$store.dispatch('SET_DECKS_REF');
+    this.$store.dispatch('BIND_DECKS');
   },
   render: (h) => h(App),
 }).$mount('#app');
