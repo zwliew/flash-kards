@@ -1,21 +1,23 @@
 <template>
   <div class="manage-deck">
-    <h1 class="manage-deck__title">Manage Deck</h1>
+    <h1 class="manage-deck__title">{{ deck.title }}</h1>
     <div v-if="deck !== undefined">
-      <div>
-        <p>
-          <strong>Title</strong>
-          : {{ deck.title }}
-        </p>
-        <p>
-          <strong>Tags</strong>
-          : {{ tagline }}
-        </p>
-        <p>
-          <strong>Number of cards</strong>
-          : {{ lengthText }}
-        </p>
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <strong>Tags</strong>
+            </td>
+            <td>{{ tagline }}</td>
+          </tr>
+          <tr>
+            <td>
+              <strong>Number of cards</strong>
+            </td>
+            <td>{{ lengthText }}</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="manage-deck__actions">
         <Button @click="study">Study</Button>
         <Button v-if="isAuthorized" @click="addNewCard">Add card</Button>

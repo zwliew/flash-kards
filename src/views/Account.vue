@@ -1,6 +1,6 @@
 <template>
   <div class="account">
-    <h1 class="account__title">Account</h1>
+    <h1 class="account__title">My account</h1>
     <div v-if="user !== null">
       <img class="account__photo" :src="user.photoUrl">
       <p>

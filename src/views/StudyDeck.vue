@@ -1,7 +1,7 @@
 <template>
   <div class="study-deck">
     <header class="study-deck__header">
-      <h1 class="study-deck__title">Study</h1>
+      <h1 class="study-deck__title">Studying {{ deckTitle }}</h1>
     </header>
     <div v-if="cards">
       <Card :card="cards[indices[curIndex]]"/>
@@ -37,15 +37,23 @@ export default class StudyDeck extends Vue {
   private indices: number[] = [];
 
   private created() {
-    this.onCardsChanged(this.cards);
+    this.onCardsChanged(this.deck.cards);
   }
 
   get deckId() {
     return this.$route.params.deckId;
   }
 
+  get deck() {
+    return this.$store.getters.getDeckById(this.deckId);
+  }
+
   get cards() {
-    return this.$store.getters.getDeckById(this.deckId).cards;
+    return this.deck.cards;
+  }
+
+  get deckTitle() {
+    return this.deck.title;
   }
 
   @Watch('cards')
