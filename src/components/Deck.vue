@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="`/manage/${deck.id}`" class="deck">
+  <router-link :to="{name: 'manageDeck', params: { deckId: deck.id }}" class="deck">
     <h1>{{ deck.title }}</h1>
     <em>{{ tagline }}</em>
     <p>{{ lengthText }}</p>

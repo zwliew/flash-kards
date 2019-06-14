@@ -1,6 +1,6 @@
 <template>
-  <div class="manage">
-    <h1 class="manage__title">Manage</h1>
+  <div class="manage-deck">
+    <h1 class="manage-deck__title">Manage Deck</h1>
     <div v-if="deck !== undefined">
       <div>
         <p>
@@ -16,9 +16,8 @@
           : {{ lengthText }}
         </p>
       </div>
-      <div class="manage__actions">
+      <div class="manage-deck__actions">
         <Button @click="study">Study</Button>
-        <Button v-if="isAuthorized" @click="edit">Edit</Button>
         <Button v-if="isAuthorized" @click="addNewCard">Add card</Button>
       </div>
     </div>
@@ -34,13 +33,16 @@ import Button from '@/components/Button.vue';
     Button,
   },
 })
-export default class Manage extends Vue {
+export default class ManageDeck extends Vue {
   get isAuthorized() {
     return this.$store.state.user !== null && this.$store.state.user.isAdmin;
   }
 
+  get deckId() {
+    return this.$route.params.deckId;
+  }
   get deck() {
-    return this.$store.getters.getDeckById(this.id);
+    return this.$store.getters.getDeckById(this.deckId);
   }
 
   get tagline() {
@@ -61,36 +63,38 @@ export default class Manage extends Vue {
     }`;
   }
 
-  get id() {
-    return this.$route.params.id;
-  }
-
   private study() {
-    this.$router.push(`/study/${this.id}`);
-  }
-
-  private edit() {
-    this.$router.push(`/edit/${this.id}`);
+    this.$router.push({
+      name: 'studyDeck',
+      params: {
+        deckId: this.deckId,
+      },
+    });
   }
 
   private addNewCard() {
-    this.$router.push(`/${this.id}/new`);
+    this.$router.push({
+      name: 'newCard',
+      params: {
+        deckId: this.deckId,
+      },
+    });
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.manage {
+.manage-deck {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.manage__title {
+.manage-deck__title {
   margin: 16px 0;
 }
 
-.manage__actions {
+.manage-deck__actions {
   display: flex;
   justify-content: space-evenly;
   margin-top: 8px;

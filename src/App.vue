@@ -1,8 +1,8 @@
 <template>
   <div class="app">
     <nav class="nav">
-      <router-link to="/decks">Decks</router-link>|
-      <router-link to="/account">Account</router-link>
+      <router-link :to="{ name: 'decks' }">Decks</router-link>|
+      <router-link :to="{ name: 'account' }">Account</router-link>
     </nav>
     <transition name="fade" mode="out-in">
       <router-view/>

@@ -73,7 +73,12 @@ export default class NewCard extends Vue {
   @Watch('cardAdded')
   private onCardAdded(now: CardType, old: CardType) {
     if (now !== old && now) {
-      this.$router.push(`/manage/${this.deckId}`);
+      this.$router.push({
+        name: 'manageDeck',
+        params: {
+          deckId: this.deckId,
+        },
+      });
     }
   }
 

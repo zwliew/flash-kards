@@ -1,18 +1,18 @@
 <template>
-  <div class="study">
-    <header class="study__header">
-      <h1 class="study__title">Study</h1>
+  <div class="study-deck">
+    <header class="study-deck__header">
+      <h1 class="study-deck__title">Study</h1>
     </header>
     <div v-if="cards">
       <Card :card="cards[indices[curIndex]]"/>
-      <div class="study__actions">
-        <button class="study__action" @click="prev">
+      <div class="study-deck__actions">
+        <button class="study-deck__action" @click="prev">
           <i class="material-icons" title="Previous">arrow_back</i>
         </button>
-        <button class="study__action" @click="shuffle">
+        <button class="study-deck__action" @click="shuffle">
           <i class="material-icons" title="Shuffle">shuffle</i>
         </button>
-        <button class="study__action" @click="next">
+        <button class="study-deck__action" @click="next">
           <i class="material-icons" title="Next">arrow_forward</i>
         </button>
       </div>
@@ -29,7 +29,7 @@ import { Card as CardType } from '@/store';
 @Component({
   components: { Card },
 })
-export default class Study extends Vue {
+export default class StudyDeck extends Vue {
   private curIndex = 0;
   private indices: number[] = [];
 
@@ -37,13 +37,19 @@ export default class Study extends Vue {
     this.onCardsChanged(this.cards);
   }
 
+  get deckId() {
+    return this.$route.params.deckId;
+  }
+
   get cards() {
-    return this.$store.getters.getDeckById(this.$route.params.id).cards;
+    return this.$store.getters.getDeckById(this.deckId).cards;
   }
 
   @Watch('cards')
   private onCardsChanged(newCards: CardType[]) {
-    this.indices = newCards.map((_, idx) => idx < this.indices.length ? this.indices[idx] : idx);
+    this.indices = newCards.map((_, idx) =>
+      idx < this.indices.length ? this.indices[idx] : idx,
+    );
   }
 
   private mounted() {
@@ -78,13 +84,14 @@ export default class Study extends Vue {
   }
 
   private prev() {
-    this.curIndex = (this.curIndex - 1 + this.indices.length) % this.indices.length;
+    this.curIndex =
+      (this.curIndex - 1 + this.indices.length) % this.indices.length;
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.study {
+.study-deck {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,23 +99,23 @@ export default class Study extends Vue {
   padding: 0 16px;
 }
 
-.study__header {
+.study-deck__header {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.study__title {
+.study-deck__title {
   margin: 16px 0;
 }
 
-.study__actions {
+.study-deck__actions {
   display: flex;
   justify-content: center;
   margin-top: 8px;
 }
 
-.study__action {
+.study-deck__action {
   $focused-color: #eee;
 
   background: none;
