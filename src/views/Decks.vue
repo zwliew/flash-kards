@@ -36,8 +36,8 @@ export default class Decks extends Vue {
 
   &__list {
     display: grid;
-    grid-column-gap: 16px;
-    grid-row-gap: 16px;
+    grid-column-gap: 8px;
+    grid-row-gap: 8px;
     padding: 0 8px;
 
     @media (min-width: 600px) {
