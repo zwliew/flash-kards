@@ -1,13 +1,13 @@
 <template>
-  <div class="edit-card">
+  <div :class="$style.editCard">
     <div v-if="deckTitle">
-      <h1 class="edit-card__title">Editing a card in {{ deckTitle }}</h1>
+      <h1 :class="$style.editCard__title">Editing a card in {{ deckTitle }}</h1>
       <div>
         <MyInput
           v-model="front"
           type="text"
           name="front"
-          class="edit-card__input"
+          :class="$style.editCard__input"
           placeholder="Front"
           required
           :disabled="!isAuthorized"
@@ -18,7 +18,7 @@
           v-model="back"
           type="text"
           name="back"
-          class="edit-card__input"
+          :class="$style.editCard__input"
           placeholder="Back"
           :disabled="!isAuthorized"
           rows="8"
@@ -114,24 +114,24 @@ export default class NewCard extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.edit-card {
+<style lang="scss" module>
+.editCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
 
-.edit-card__title {
-  margin: 16px 0;
-}
+  &__title {
+    margin: 16px 0;
+  }
 
-.edit-card__input {
-  background: none;
-  border: 0;
-  border-bottom: 2px solid #b0b0b0;
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  width: 100%;
+  &__input {
+    background: none;
+    border: 0;
+    border-bottom: 2px solid #b0b0b0;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    width: 100%;
+  }
 }
 </style>

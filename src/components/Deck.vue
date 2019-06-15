@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{name: 'manageDeck', params: { deckId: deck.id }}" class="deck">
+  <router-link :to="{name: 'manageDeck', params: { deckId: deck.id }}" :class="$style.deck">
     <h1>{{ deck.title }}</h1>
     <em>{{ tagline }}</em>
     <p>{{ lengthText }}</p>
@@ -26,7 +26,7 @@ export default class Deck extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .deck {
   $focused-box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.25);
 

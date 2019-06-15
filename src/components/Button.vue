@@ -1,5 +1,5 @@
 <template>
-  <button class="button" :disabled="disabled" @click="$emit('click')">
+  <button :class="$style.button" :disabled="disabled" @click="$emit('click')">
     <slot/>
   </button>
 </template>
@@ -13,7 +13,7 @@ export default class Button extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .button {
   $unfocused-color: white;
   $focused-color: #eee;

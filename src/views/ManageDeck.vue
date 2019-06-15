@@ -1,27 +1,25 @@
 <template>
-  <div class="manage-deck">
-    <h1 class="manage-deck__title">{{ deck.title }}</h1>
-    <div v-if="deck !== undefined">
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <strong>Tags</strong>
-            </td>
-            <td>{{ tagline }}</td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Number of cards</strong>
-            </td>
-            <td>{{ lengthText }}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="manage-deck__actions">
-        <Button @click="study">Study</Button>
-        <Button v-if="isAuthorized" @click="addNewCard">Add card</Button>
-      </div>
+  <div :class="$style.manageDeck" v-if="deck !== undefined">
+    <h1 :class="$style.manageDeck__title">{{ deck.title }}</h1>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <strong>Tags</strong>
+          </td>
+          <td>{{ tagline }}</td>
+        </tr>
+        <tr>
+          <td>
+            <strong>Number of cards</strong>
+          </td>
+          <td>{{ lengthText }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div :class="$style.manageDeck__actions">
+      <Button @click="study">Study</Button>
+      <Button v-if="isAuthorized" @click="addNewCard">Add card</Button>
     </div>
   </div>
 </template>
@@ -85,20 +83,20 @@ export default class ManageDeck extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.manage-deck {
+<style lang="scss" module>
+.manageDeck {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
 
-.manage-deck__title {
-  margin: 16px 0;
-}
+  &__title {
+    margin: 16px 0;
+  }
 
-.manage-deck__actions {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 8px;
+  &__actions {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 8px;
+  }
 }
 </style>

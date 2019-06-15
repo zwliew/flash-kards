@@ -1,11 +1,15 @@
 <template>
-  <div class="account">
-    <h1 class="account__title">My account</h1>
+  <div :class="$style.account">
+    <h1 :class="$style.account__title">My account</h1>
     <div v-if="user !== null">
-      <img class="account__photo" :src="user.photoUrl">
+      <img :class="$style.account__photo" :src="user.photoUrl">
       <p>
         {{ user.name }}
-        <i v-if="user.isAdmin" class="material-icons account__badge">star</i>
+        <i
+          v-if="user.isAdmin"
+          :class="$style.account__badge"
+          class="material-icons"
+        >star</i>
       </p>
       <Button @click="logout">Log out</Button>
     </div>
@@ -51,23 +55,23 @@ export default class Account extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .account {
   text-align: center;
-}
 
-.account__title {
-  margin: 16px 0;
-}
+  &__title {
+    margin: 16px 0;
+  }
 
-.account__photo {
-  border-radius: 50%;
-  max-width: 128px;
-  max-height: 128px;
-}
+  &__photo {
+    border-radius: 50%;
+    max-width: 128px;
+    max-height: 128px;
+  }
 
-.account__badge {
-  color: #fdd835;
-  vertical-align: text-bottom;
+  &__badge {
+    color: #fdd835;
+    vertical-align: text-bottom;
+  }
 }
 </style>

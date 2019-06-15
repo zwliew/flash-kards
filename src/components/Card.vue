@@ -1,8 +1,8 @@
 <template>
-  <div class="card">
+  <div :class="$style.card">
     <h1 v-if="!flipped">{{ visibleText }}</h1>
     <p v-if="flipped">{{ visibleText }}</p>
-    <Button class="card__action" @click="flipped = !flipped">Flip</Button>
+    <Button :class="$style.card__action" @click="flipped = !flipped">Flip</Button>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default class Card extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .card {
   align-items: center;
   border: 1px solid #b0b0b0;
@@ -40,9 +40,9 @@ export default class Card extends Vue {
   display: flex;
   flex-direction: column;
   padding: 16px 8px 8px 8px;
-}
 
-.card__action {
-  margin-top: 8px;
+  &__action {
+    margin-top: 8px;
+  }
 }
 </style>

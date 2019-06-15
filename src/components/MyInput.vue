@@ -1,6 +1,6 @@
 <template>
   <input
-    class="input"
+    :class="$style.input"
     :type="type"
     :name="name"
     :placeholder="placeholder"
@@ -16,16 +16,16 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 
 @Component
 export default class MyInput extends Vue {
-  @Prop({type: String, default: ''}) public readonly type!: string;
-  @Prop({type: String, default: ''}) public readonly name!: string;
-  @Prop({type: String, default: ''}) public readonly placeholder!: string;
-  @Prop({type: String, default: ''}) public readonly value!: string;
-  @Prop({type: Boolean, default: false}) public readonly required!: boolean;
-  @Prop({type: Boolean, default: false}) public readonly disabled!: boolean;
+  @Prop({ type: String, default: '' }) public readonly type!: string;
+  @Prop({ type: String, default: '' }) public readonly name!: string;
+  @Prop({ type: String, default: '' }) public readonly placeholder!: string;
+  @Prop({ type: String, default: '' }) public readonly value!: string;
+  @Prop({ type: Boolean, default: false }) public readonly required!: boolean;
+  @Prop({ type: Boolean, default: false }) public readonly disabled!: boolean;
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .input {
   background: none;
   border: 0;

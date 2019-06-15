@@ -1,13 +1,13 @@
 <template>
-  <div class="new-card">
+  <div :class="$style.newCard">
     <div v-if="deckTitle">
-      <h1 class="new-card__title">New card for {{ deckTitle }}</h1>
+      <h1 :class="$style.newCard__title">New card for {{ deckTitle }}</h1>
       <div>
         <MyInput
           v-model="front"
           type="text"
           name="front"
-          class="new-card__input"
+          :class="$style.newCard__input"
           placeholder="Front"
           required
           :disabled="!isAuthorized"
@@ -18,7 +18,7 @@
           v-model="back"
           type="text"
           name="back"
-          class="new-card__input"
+          :class="$style.newCard__input"
           placeholder="Back"
           :disabled="!isAuthorized"
           rows="8"
@@ -101,24 +101,24 @@ export default class NewCard extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.new-card {
+<style lang="scss" module>
+.newCard {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-}
 
-.new-card__title {
-  margin: 16px 0;
-}
+  &__title {
+    margin: 16px 0;
+  }
 
-.new-card__input {
-  background: none;
-  border: 0;
-  border-bottom: 2px solid #b0b0b0;
-  font-size: 1.25rem;
-  margin-bottom: 8px;
-  width: 100%;
+  &__input {
+    background: none;
+    border: 0;
+    border-bottom: 2px solid #b0b0b0;
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+    width: 100%;
+  }
 }
 </style>

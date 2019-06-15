@@ -1,21 +1,21 @@
 <template>
-  <div class="study-deck">
-    <header class="study-deck__header">
-      <h1 class="study-deck__title">Studying {{ deckTitle }}</h1>
+  <div :class="$style.studyDeck">
+    <header :class="$style.studyDeck__header" v-if="deckTitle">
+      <h1 :class="$style.studyDeck__title">Studying {{ deckTitle }}</h1>
     </header>
     <div v-if="cards">
       <Card :card="cards[indices[curIndex]]"/>
-      <div class="study-deck__actions">
-        <button class="study-deck__action" @click="prev" title="Previous">
+      <div :class="$style.studyDeck__actions">
+        <button :class="$style.studyDeck__action" @click="prev" title="Previous">
           <i class="material-icons">arrow_back</i>
         </button>
-        <button class="study-deck__action" @click="shuffle" title="Shuffle">
+        <button :class="$style.studyDeck__action" @click="shuffle" title="Shuffle">
           <i class="material-icons">shuffle</i>
         </button>
-        <button class="study-deck__action" @click="next" title="Next">
+        <button :class="$style.studyDeck__action" @click="next" title="Next">
           <i class="material-icons">arrow_forward</i>
         </button>
-        <button class="study-deck__action" @click="editCurCard" title="Edit">
+        <button :class="$style.studyDeck__action" @click="editCurCard" title="Edit">
           <i class="material-icons">edit</i>
         </button>
       </div>
@@ -49,11 +49,11 @@ export default class StudyDeck extends Vue {
   }
 
   get cards() {
-    return this.deck.cards;
+    return this.deck !== undefined ? this.deck.cards : null;
   }
 
   get deckTitle() {
-    return this.deck.title;
+    return this.deck !== undefined ? this.deck.title : null;
   }
 
   @Watch('cards')
@@ -111,49 +111,50 @@ export default class StudyDeck extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.study-deck {
+<style lang="scss" module>
+.studyDeck {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
   padding: 0 16px;
-}
 
-.study-deck__header {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.study-deck__title {
-  margin: 16px 0;
-}
-
-.study-deck__actions {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
-}
-
-.study-deck__action {
-  $focused-color: #eee;
-
-  background: none;
-  border-radius: 50%;
-  border: 1px solid #b0b0b0;
-  height: 42px;
-  margin: 0 4px;
-  padding: 8px;
-  transition: background 0.2s ease-out;
-
-  &:hover {
-    cursor: pointer;
-    background: $focused-color;
+  &__header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 
-  &:focus {
-    background: $focused-color;
+  &__title {
+    margin: 16px 0;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  &__action {
+    $focused-color: #eee;
+
+    background: none;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #b0b0b0;
+    height: 42px;
+    margin: 0 4px;
+    padding: 8px;
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $focused-color;
+    }
+
+    &:focus {
+      background-color: $focused-color;
+    }
   }
 }
 </style>
