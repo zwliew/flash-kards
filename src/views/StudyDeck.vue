@@ -4,20 +4,22 @@
       <h1 :class="$style.studyDeck__title">Studying {{ deckTitle }}</h1>
     </header>
     <div v-if="cards">
-      <Card :card="cards[indices[curIndex]]"/>
-      <div :class="$style.studyDeck__actions">
-        <button :class="$style.studyDeck__action" @click="prev" title="Previous">
-          <i class="material-icons">arrow_back</i>
-        </button>
-        <button :class="$style.studyDeck__action" @click="shuffle" title="Shuffle">
-          <i class="material-icons">shuffle</i>
-        </button>
-        <button :class="$style.studyDeck__action" @click="next" title="Next">
-          <i class="material-icons">arrow_forward</i>
-        </button>
-        <button :class="$style.studyDeck__action" @click="editCurCard" title="Edit">
-          <i class="material-icons">edit</i>
-        </button>
+      <div v-if="cards.length > 0">
+        <Card :card="cards[indices[curIndex]]"/>
+        <div :class="$style.studyDeck__actions">
+          <button :class="$style.studyDeck__action" @click="prev" title="Previous">
+            <i class="material-icons">arrow_back</i>
+          </button>
+          <button :class="$style.studyDeck__action" @click="shuffle" title="Shuffle">
+            <i class="material-icons">shuffle</i>
+          </button>
+          <button :class="$style.studyDeck__action" @click="next" title="Next">
+            <i class="material-icons">arrow_forward</i>
+          </button>
+          <button :class="$style.studyDeck__action" @click="editCurCard" title="Edit">
+            <i class="material-icons">edit</i>
+          </button>
+        </div>
       </div>
     </div>
     <div v-else>Loading…</div>

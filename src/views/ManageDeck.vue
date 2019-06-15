@@ -18,7 +18,7 @@
       </tbody>
     </table>
     <div :class="$style.manageDeck__actions">
-      <Button @click="study">Study</Button>
+      <Button @click="study" v-if="availableToStudy">Study</Button>
       <Button v-if="isAuthorized" @click="addNewCard">Add card</Button>
     </div>
   </div>
@@ -43,6 +43,10 @@ export default class ManageDeck extends Vue {
   }
   get deck() {
     return this.$store.getters.getDeckById(this.deckId);
+  }
+
+  get availableToStudy() {
+    return this.deck.cards && this.deck.cards.length > 0;
   }
 
   get tagline() {

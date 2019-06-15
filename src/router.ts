@@ -14,6 +14,12 @@ export default new Router({
         import(/* webpackChunkName: "decks" */ './views/Decks.vue'),
     },
     {
+      path: '/decks/new',
+      name: 'newDeck',
+      component: () =>
+        import(/* webpackChunkName: "newDeck" */ './views/NewDeck.vue'),
+    },
+    {
       path: '/decks/:deckId',
       name: 'manageDeck',
       component: () =>

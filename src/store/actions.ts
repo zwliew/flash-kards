@@ -25,11 +25,11 @@ export default {
   LOG_OUT: firestoreAction<State, State>(({ unbindFirestoreRef }) =>
     unbindFirestoreRef('user'),
   ),
-  ADD_CARD(
+  async ADD_CARD(
     { getters }: { getters: Getters },
     { deckId, front, back }: { deckId: string; front: string; back: string },
   ) {
-    firebase
+    await firebase
       .firestore()
       .collection('decks')
       .doc(deckId)
@@ -43,7 +43,7 @@ export default {
         ],
       });
   },
-  UPDATE_CARD(
+  async UPDATE_CARD(
     { getters }: { getters: Getters },
     {
       deckId,
@@ -54,12 +54,24 @@ export default {
   ) {
     const cards = getters.getDeckById(deckId).cards;
     cards[cardIdx] = { front, back };
-    firebase
+    await firebase
       .firestore()
       .collection('decks')
       .doc(deckId)
       .update({
         cards,
       });
+  },
+  async ADD_DECK(_: any, { title, tags }: { title: string; tags: string[] }) {
+    const doc = firebase
+      .firestore()
+      .collection('decks')
+      .doc();
+    await doc.set({
+      title,
+      tags,
+      cards: [],
+    });
+    return doc.id;
   },
 };

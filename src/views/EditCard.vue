@@ -72,42 +72,28 @@ export default class NewCard extends Vue {
     return this.$store.getters.getDeckTitleById(this.deckId);
   }
 
-  get cardAdded() {
-    const deck = this.$store.getters.getDeckById(this.deckId);
-    if (!deck) {
-      return false;
-    }
-    return deck.cards.find(
-      (card: CardType) => this.front === card.front && this.back === card.back,
-    );
-  }
-
-  @Watch('cardAdded')
-  private onCardAdded(now: CardType, old: CardType) {
-    if (now !== old && now) {
-      this.$router.push({
-        name: 'manageDeck',
-        params: {
-          deckId: this.deckId,
-        },
-      });
-    }
-  }
-
-  private saveCard() {
+  private async saveCard() {
     if (!this.isAuthorized) {
       alert('You are not authorized to add a new card to this deck.');
       return;
     }
 
-    if (this.front.length === 0 || this.back.length === 0) {
+    const front = this.front.trim();
+    const back = this.back.trim();
+    if (front.length === 0 || back.length === 0) {
       alert('Please fill in both the front and back text.');
     } else {
-      this.$store.dispatch('UPDATE_CARD', {
+      await this.$store.dispatch('UPDATE_CARD', {
         deckId: this.deckId,
         cardIdx: this.cardIdx,
-        front: this.front,
-        back: this.back,
+        front,
+        back,
+      });
+      this.$router.push({
+        name: 'manageDeck',
+        params: {
+          deckId: this.deckId,
+        },
       });
     }
   }
