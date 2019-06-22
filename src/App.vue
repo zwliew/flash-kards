@@ -1,51 +1,60 @@
 <template>
   <div :class="$style.app">
-    <nav :class="$style.nav">
+    <div :class="$style.app__main">
+      <transition name="fade" mode="out-in">
+        <router-view/>
+      </transition>
+    </div>
+    <nav :class="$style.app__nav">
       <router-link
         :to="{ name: 'decks' }"
-        :class="$style.routerLink"
-        :active-class="$style.routerLinkActive"
+        :class="$style.app__routerLink"
+        :active-class="$style.app__routerLinkActive"
       >Decks</router-link>|
       <router-link
         :to="{ name: 'account' }"
-        :class="$style.routerLink"
-        :active-class="$style.routerLinkActive"
+        :class="$style.app__routerLink"
+        :active-class="$style.app__routerLinkActive"
       >Account</router-link>
     </nav>
-    <transition name="fade" mode="out-in">
-      <router-view/>
-    </transition>
   </div>
 </template>
 
 <style lang="scss" module>
 .app {
   font-family: Roboto, Helvetica, Arial, sans-serif;
-}
 
-.nav {
-  text-align: center;
-  padding: 16px;
-  background: #eee;
-  text-transform: uppercase;
-}
-
-.routerLink {
-  text-decoration: none;
-  color: black;
-  padding: 12px;
-
-  &:hover {
-    color: $secondary-color-dark;
+  &__main {
+    margin-bottom: 52px;
   }
 
-  &:focus {
-    color: $secondary-color-dark;
+  &__nav {
+    background: #eee;
+    bottom: 0;
+    padding: 16px;
+    position: fixed;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
   }
 
-  &Active {
-    border-bottom: 4px solid $secondary-color-dark;
-    color: $secondary-color-dark;
+  &__routerLink {
+    text-decoration: none;
+    color: black;
+    padding: 12px;
+
+    &:hover {
+      color: $secondary-color-dark;
+    }
+
+    &:focus {
+      color: $secondary-color-dark;
+    }
+
+    &Active {
+      border-bottom: 4px solid $secondary-color-dark;
+      color: $secondary-color-dark;
+    }
   }
 }
 </style>
