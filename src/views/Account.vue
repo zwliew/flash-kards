@@ -8,7 +8,7 @@
         <i
           v-if="user.isAdmin"
           :class="$style.account__badge"
-          class="material-icons"
+          class="material-icons-round"
         >star</i>
       </p>
       <Button @click="logout">Log out</Button>

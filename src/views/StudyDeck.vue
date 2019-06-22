@@ -8,16 +8,16 @@
         <Card :card="cards[indices[curIndex]]"/>
         <div :class="$style.studyDeck__actions">
           <button :class="$style.studyDeck__action" @click="prev" title="Previous">
-            <i class="material-icons">arrow_back</i>
+            <i class="material-icons-round">arrow_back</i>
           </button>
           <button :class="$style.studyDeck__action" @click="shuffle" title="Shuffle">
-            <i class="material-icons">shuffle</i>
+            <i class="material-icons-round">shuffle</i>
           </button>
           <button :class="$style.studyDeck__action" @click="next" title="Next">
-            <i class="material-icons">arrow_forward</i>
+            <i class="material-icons-round">arrow_forward</i>
           </button>
           <button :class="$style.studyDeck__action" @click="editCurCard" title="Edit">
-            <i class="material-icons">edit</i>
+            <i class="material-icons-round">edit</i>
           </button>
         </div>
       </div>
