@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.card">
-    <h1 v-if="!flipped">{{ visibleText }}</h1>
-    <p v-if="flipped">{{ visibleText }}</p>
+    <h1 v-if="!flipped" :class="$style.card__text">{{ visibleText }}</h1>
+    <p v-if="flipped" :class="$style.card__text">{{ visibleText }}</p>
     <Button :class="$style.card__action" @click="flipped = !flipped">Flip</Button>
   </div>
 </template>
@@ -43,6 +43,10 @@ export default class Card extends Vue {
 
   &__action {
     margin-top: 8px;
+  }
+
+  &__text {
+    white-space: pre-wrap;
   }
 }
 </style>
