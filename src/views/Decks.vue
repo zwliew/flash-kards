@@ -3,7 +3,7 @@
     <h1 :class="$style.decks__title">Decks</h1>
     <Button @click="addNewDeck">Add deck</Button>
     <div v-if="decks.length > 0" :class="$style.decks__list">
-      <Deck v-for="deck in decks" :key="deck.id" :deck="deck"/>
+      <Deck v-for="deck of decks" :key="deck.id" :deck="deck"/>
     </div>
     <div v-else>Loading…</div>
   </div>

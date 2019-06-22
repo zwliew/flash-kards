@@ -3,7 +3,7 @@
     <h1>{{ deck.title }}</h1>
     <div :class="$style.deck__info">
       <div>
-        <Chip v-for="tag in tags" :key="tag" :class="$style.deck__tag">{{tag}}</Chip>
+        <Chip v-for="(tag, index) of tags" :key="index" :class="$style.deck__tag">{{tag}}</Chip>
       </div>
       <span>
         {{ numCards }}
