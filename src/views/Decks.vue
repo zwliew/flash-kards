@@ -38,6 +38,7 @@ export default class Decks extends Vue {
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding-bottom: 16px;
 
   &__title {
     margin-top: 16px;
