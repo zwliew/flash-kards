@@ -2,7 +2,7 @@
   <div :class="$style.account">
     <h1 :class="$style.account__title">My account</h1>
     <div v-if="user !== null">
-      <img :class="$style.account__photo" :src="user.photoUrl">
+      <img :class="$style.account__photo" :src="user.photoUrl" />
       <p>
         {{ user.name }}
         <i
@@ -13,7 +13,7 @@
       </p>
       <Button @click="logout">Log out</Button>
     </div>
-    <div v-show="user === null" id="firebaseui-auth-container"/>
+    <div v-show="user === null" id="firebaseui-auth-container" />
   </div>
 </template>
 
@@ -21,7 +21,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import firebaseui from 'firebaseui';
+import * as firebaseui from 'firebaseui';
 import Button from '@/components/Button.vue';
 
 @Component({

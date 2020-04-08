@@ -2,7 +2,7 @@
   <div :class="$style.app">
     <div :class="$style.app__main">
       <transition name="fade" mode="out-in">
-        <router-view/>
+        <router-view />
       </transition>
     </div>
     <nav :class="$style.app__nav">
