@@ -1,6 +1,14 @@
 <template>
   <div :class="$style.app">
     <div :class="$style.app__main">
+      <iframe
+        src="https://ghbtns.com/github-btn.html?user=zwliew&repo=flash-kards.web.app&type=star&count=true"
+        frameborder="0"
+        scrolling="0"
+        width="80px"
+        height="20px"
+        :class="$style.app__githubBanner"
+      ></iframe>
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -57,6 +65,12 @@
       border-bottom: 4px solid $secondary-color-dark;
       color: $secondary-color-dark;
     }
+  }
+
+  &__githubBanner {
+    position: absolute;
+    top: 8px;
+    left: 8px;
   }
 }
 </style>
