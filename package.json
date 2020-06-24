@@ -29,10 +29,10 @@
     "vuexfire": "3.2.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "4.4.4",
-    "@vue/cli-plugin-pwa": "4.4.4",
-    "@vue/cli-plugin-typescript": "4.4.4",
-    "@vue/cli-service": "4.4.4",
+    "@vue/cli-plugin-babel": "4.4.6",
+    "@vue/cli-plugin-pwa": "4.4.6",
+    "@vue/cli-plugin-typescript": "4.4.6",
+    "@vue/cli-service": "4.4.6",
     "lint-staged": "10.2.11",
     "sass": "1.26.8",
     "sass-loader": "7.3.1",
