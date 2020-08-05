@@ -35,7 +35,7 @@
     "@vue/cli-service": "4.4.6",
     "lint-staged": "10.2.11",
     "sass": "1.26.10",
-    "sass-loader": "9.0.2",
+    "sass-loader": "9.0.3",
     "typescript": "3.9.7",
     "vue-template-compiler": "2.6.11"
   },
